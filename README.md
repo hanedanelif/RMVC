@@ -1,23 +1,23 @@
-# 📊 RMVC - Rough Multi-Valued Choice Decision Support System
+# 📊 RMVC - Relational Membership Value Calculation
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-**RMVC (Rough Multi-Valued Choice)**, belirsizlik altında karar verme problemleri için geliştirilmiş, Rough Set Teorisi tabanlı bir algoritmik çerçevedir. Bu proje, akademik makalede tanımlanan RMVC yöntemini kullanıcı dostu bir web arayüzü ile sunmaktadır.
+**RMVC (Relational Membership Value Calculation)**, belirsizlik altında karar verme problemleri için geliştirilmiş, **Soft Set Teorisi (Esnek Küme Teorisi)** tabanlı yeni bir algoritmik çerçevedir. Bu proje, akademik makalede tanımlanan RMVC yöntemini ve ilişkisel üyelik fonksiyonunu kullanıcı dostu bir web arayüzü ile sunmaktadır.
 
-> 📄 **Referans Makale:** *"RMVC: A Validated Algorithmic Framework for Decision-Making Under Uncertainty"* (Mathematics, 2024)
+> 📄 **Referans Makale:** Dayioglu, A.; Erdogan, F.O.; Celik, B. *"RMVC: A Validated Algorithmic Framework for Decision-Making Under Uncertainty"*. Mathematics **2025**, 13, 2693.
 
 ---
 
 ## 🎯 Ne İşe Yarar?
 
-RMVC, birden fazla kriter (parametre) altında en iyi seçeneği belirlemenize yardımcı olur:
+RMVC, geleneksel ikili (binary) yaklaşımların aksine, adayların sahip olmadığı özellikler arasındaki **ilişkisel bağları (relational connections)** analiz ederek daha hassas bir sıralama sunar:
 
 - 🏢 **İş Kararları:** En iyi tedarikçi, müşteri veya ürün seçimi
 - 🎓 **Akademik:** Aday değerlendirme, proje seçimi
-- 📊 **Veri Analizi:** Çok kriterli sıralama ve puanlama
-- 🔬 **Araştırma:** Soft Set ve Rough Set tabanlı karar destek sistemleri
+- 📊 **Veri Analizi:** Çok kriterli sıralama ve puanlama (MCDM)
+- 🔬 **Araştırma:** Soft Set tabanlı karar destek sistemleri ve yapay zeka araçları
 
 ---
 
@@ -108,20 +108,24 @@ e4,1,1,0,0,1
 
 ## 🧮 Matematiksel Formüller
 
-### Üyelik Değeri
+Makalede tanımlanan **İlişkisel Üyelik Fonksiyonu (Relational Membership Function)** temel alınmıştır.
+
+> **Not:** Makalede üyelik fonksiyonu Θ (Theta) sembolü ile gösterilir. Kodda `M` kullanılmıştır.
+
+### Üyelik Değeri (Θ)
 
 ```
-M(u, eᵢ) = 1                           eğer u ∈ Φ(eᵢ)
-M(u, eᵢ) = δ(u, eᵢ) / γ(eᵢ)            eğer u ∉ Φ(eᵢ)
+Θ(u, eᵢ) = 1                           eğer u ∈ Φ(eᵢ)
+Θ(u, eᵢ) = δ(u, eᵢ) / γ(eᵢ)            eğer u ∉ Φ(eᵢ)
 ```
 
-### Delta Fonksiyonu
+### Delta Fonksiyonu (Co-occurrence)
 
 ```
-δ(u, eᵢ) = Σ_{v ∈ Φ(eᵢ)} |{eⱼ ∈ E : {u, v} ⊆ Φ(eⱼ)}|
+δ(u, eᵢ) = Σ_{v ∈ Φ(eᵢ)} Σ_{eₖ ∈ E\{eᵢ}} 𝟙_{if {u, v} ⊆ Φ(eₖ)}
 ```
 
-**Açıklama:** u elemanı ile Φ(eᵢ) içindeki her v elemanının, diğer tüm kümelerde kaç kez birlikte bulunduğunu sayar.
+**Açıklama:** u elemanı ile Φ(eᵢ) içindeki elemanların, diğer parametre kümelerinde (E\{eᵢ}) ne sıklıkla birlikte bulunduğunu ölçer.
 
 ### Normalizasyon Katsayısı
 
@@ -305,9 +309,8 @@ Sorularınız için issue açabilirsiniz.
 
 ## 📚 Referanslar
 
-1. *"RMVC: A Validated Algorithmic Framework for Decision-Making Under Uncertainty"* - Mathematics Journal, 2024
-2. Pawlak, Z. (1982). Rough sets. International Journal of Computer & Information Sciences.
-3. Molodtsov, D. (1999). Soft set theory—First results. Computers & Mathematics with Applications.
+1. Dayioglu, A.; Erdogan, F.O.; Celik, B. *"RMVC: A Validated Algorithmic Framework for Decision-Making Under Uncertainty"*. Mathematics **2025**, 13, 2693.
+2. Molodtsov, D. (1999). Soft set theory—First results. Computers & Mathematics with Applications.
 
 ---
 

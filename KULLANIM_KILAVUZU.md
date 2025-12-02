@@ -1,5 +1,7 @@
 # 📖 RMVC Kullanım Kılavuzu (Türkçe)
 
+**RMVC (Relational Membership Value Calculation)** - Soft Set Teorisi tabanlı karar destek sistemi.
+
 Bu kılavuz, RMVC uygulamasını adım adım nasıl kullanacağınızı açıklamaktadır.
 
 ---

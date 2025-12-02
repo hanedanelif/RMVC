@@ -1,16 +1,20 @@
 # -*- coding: utf-8 -*-
 """
-RMVC Web Arayüzü v2 - Düzeltilmiş Versiyon
-==========================================
-Makaledeki (mathematics-13-02693-v3) formüllere uygun hesaplama.
+RMVC Web Arayüzü v2 - Relational Membership Value Calculation
+=============================================================
+Soft Set Teorisi tabanlı karar destek sistemi.
 
-Düzeltmeler:
+Referans:
+    Dayioglu, A.; Erdogan, F.O.; Celik, B. "RMVC: A Validated Algorithmic 
+    Framework for Decision-Making Under Uncertainty". Mathematics 2025, 13, 2693.
+
+Düzeltmeler (v2):
 1. Delta fonksiyonu: Tüm kümelerde ikili sayımı (break kaldırıldı)
 2. Matris yönü: Satırlar=Parametreler, Sütunlar=Elemanlar
 3. Formül doğrulaması: Example 1 ile test edildi
 
 Çalıştırma:
-    streamlit run rmvc_app_v2.py --server.port 8510
+    streamlit run rmvc_app_v2.py --server.port 8515
 """
 
 import streamlit as st
@@ -257,7 +261,7 @@ def get_element_detail(u, membership_matrix, E_info):
 def main():
     # Başlık
     st.markdown('<div class="main-header">📊 RMVC Analiz Aracı v2</div>', unsafe_allow_html=True)
-    st.markdown('<div class="sub-header">Rough Multi-Valued Choice - Makaledeki Formüllere Uygun</div>', unsafe_allow_html=True)
+    st.markdown('<div class="sub-header">Relational Membership Value Calculation - Soft Set Teorisi Tabanlı</div>', unsafe_allow_html=True)
     
     # Sidebar
     with st.sidebar:

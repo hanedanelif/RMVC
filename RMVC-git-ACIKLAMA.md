@@ -1,12 +1,12 @@
-# RMVC-git.py - Rough Multi-Valued Choice Algoritması
+# RMVC-git.py - Relational Membership Value Calculation Algoritması
 ## Akademik Çalışma Implementasyonu
 
-**Kaynak:** Mathematics Journal (mathematics-13-02693-v3)
-**Konu:** Rough Set Theory Tabanlı Çok Kriterli Karar Verme
+**Kaynak:** Dayioglu, A.; Erdogan, F.O.; Celik, B. "RMVC: A Validated Algorithmic Framework for Decision-Making Under Uncertainty". Mathematics 2025, 13, 2693.
+**Konu:** Soft Set Teorisi Tabanlı Çok Kriterli Karar Verme
 
 ## Genel Bakış
 
-Bu Python programı, **Rough Multi-Valued Choice (RMVC)** yönteminin bilimsel implementasyonudur. RMVC, Rough Set Theory (Kaba Küme Teorisi) prensiplerini kullanarak belirsizlik altında çok kriterli karar verme problemlerini çözen bir yöntemdir.
+Bu Python programı, **Relational Membership Value Calculation (RMVC)** yönteminin bilimsel implementasyonudur. RMVC, Soft Set Teorisi (Esnek Küme Teorisi) prensiplerini kullanarak belirsizlik altında çok kriterli karar verme problemlerini çözen bir yöntemdir. Geleneksel ikili (binary) yaklaşımların aksine, elemanlar arasındaki ilişkisel bağları analiz ederek daha hassas bir değerlendirme sunar.
 
 ### Temel Problem
 Bir evren kümesi U ve bu kümenin alt kümeleri E = {e₁, e₂, ..., eₘ} verildiğinde, her bir eleman için göreli üyelik değerlerini (relative membership values) hesaplayarak optimal seçimi belirlemek.
@@ -36,7 +36,7 @@ Bir evren kümesi U ve bu kümenin alt kümeleri E = {e₁, e₂, ..., eₘ} ver
 **Tanım:** M(u, eᵢ) ∈ [0, 1]
 - u elemanının eᵢ kümesine göre üyelik derecesi
 - M(u, eᵢ) = 1: u ∈ eᵢ (tam üyelik)
-- M(u, eᵢ) < 1: u ∉ eᵢ (kısmi üyelik - rough set yaklaşımı)
+- M(u, eᵢ) < 1: u ∉ eᵢ (kısmi üyelik - ilişkisel bağ yaklaşımı)
 
 ### 4. Üyelik Matrisi (Membership Matrix)
 **Gösterim:** M = [M(uⱼ, eᵢ)]ₘₓₙ
@@ -87,7 +87,7 @@ The elements of e_3: (Enter - sonlandırma)
 ```
 
 ### 4. `delta_function(e_name, E_named)` - δ Fonksiyonu
-**Amaç:** Rough Set Theory'deki yakınlık ölçüsünü hesaplamak
+**Amaç:** Soft Set Teorisi'ndeki ilişkisel yakınlık ölçüsünü hesaplamak
 
 **Matematiksel Tanım:**
 Bir u ∉ eᵢ elemanı için:
@@ -135,7 +135,7 @@ e₁ için δ hesabı (d ∉ e₁):
 ```
 
 **Teorik Temel:**
-Bu fonksiyon, Pawlak'ın Rough Set Theory'sindeki "lower approximation" ve "upper approximation" kavramlarına dayanır. Bir elemanın kümeye ait olmaması durumunda bile, diğer kümelerle olan ilişkisi üzerinden kısmi üyelik hesaplanır.
+Bu fonksiyon, Soft Set Teorisi'ndeki ilişkisel bağ (co-occurrence) kavramına dayanır. Bir elemanın kümeye ait olmaması durumunda bile, diğer kümelerle olan ilişkisi üzerinden kısmi üyelik hesaplanır.
 
 ### 5. `create_membership_matrix(E_keys, e_name)` - Üyelik Matrisi Oluşturma
 **Amaç:** RMVC yönteminin çekirdek hesaplaması - tüm üyelik değerlerini hesaplamak
@@ -147,7 +147,7 @@ Bu fonksiyon, Pawlak'ın Rough Set Theory'sindeki "lower approximation" ve "uppe
 M(u, eᵢ) = 1
 ```
 
-**Durum 2: u ∉ eᵢ (Kısmi Üyelik - Rough Set Yaklaşımı)**
+**Durum 2: u ∉ eᵢ (Kısmi Üyelik - İlişkisel Bağ Yaklaşımı)**
 ```
 M(u, eᵢ) = δ(u, eᵢ) / γ(eᵢ)
 
@@ -295,17 +295,17 @@ print("============DECISION MAKING PHASE================")
 
 ## RMVC Yönteminin Matematiksel Temeli
 
-### Rough Set Theory Bağlantısı
+### Soft Set Teorisi Bağlantısı
 
-**Pawlak'ın Rough Set Theory (1982):**
+**Molodtsov'un Soft Set Teorisi (1999):**
 - Belirsiz ve eksik bilgi ile çalışma yeteneği
-- Lower approximation (alt yaklaşım) ve upper approximation (üst yaklaşım)
-- Boundary region (sınır bölgesi) kavramı
+- Parametre kümeleri üzerinden esnek değerlendirme
+- İkili (binary) kısıtlamaların aşılması
 
-**RMVC'deki Uyarlama:**
-- Klasik rough set: İkili ilişki (equivalence relation)
-- RMVC: Çoklu kriter kümeleri üzerinden yakınlık ölçümü
-- Üyelik değeri: Boundary region'daki elemanlar için kısmi üyelik
+**RMVC'deki Yenilik:**
+- Klasik soft set: İkili üyelik (0 veya 1)
+- RMVC: İlişkisel bağlar (co-occurrence) üzerinden kısmi üyelik hesaplama
+- Üyelik değeri: Kümeye ait olmayan elemanlar için ilişkisel değerlendirme
 
 ### Karar Verme Mekanizması
 
@@ -354,7 +354,7 @@ u* ∈ U: En yüksek skora sahip eleman(lar)
 
 | Yöntem | Temel | Belirsizlik | Hesaplama |
 |--------|-------|-------------|------------|
-| **RMVC** | Rough Set | Yüksek | Orta |
+| **RMVC** | Soft Set | Yüksek | Orta |
 | AHP | Pairwise Comparison | Düşük | Yüksek |
 | TOPSIS | İdeal Çözüm Mesafesi | Orta | Düşük |
 | ELECTRE | Outranking | Orta | Yüksek |
@@ -743,34 +743,28 @@ class TestRMVC(unittest.TestCase):
 
 ### Temel Kaynaklar
 
-1. **Pawlak, Z. (1982)**
-   - "Rough Sets"
-   - International Journal of Computer & Information Sciences
-   - Rough Set Theory'nin temeli
-
-2. **Mathematics Journal (2025)**
-   - "Rough Multi-Valued Choice Method"
-   - DOI: mathematics-13-02693-v3
+1. **Dayioglu, A.; Erdogan, F.O.; Celik, B. (2025)**
+   - "RMVC: A Validated Algorithmic Framework for Decision-Making Under Uncertainty"
+   - Mathematics 2025, 13, 2693
    - Bu implementasyonun kaynak makalesi
 
-3. **Greco, S., Matarazzo, B., Słowiński, R. (2001)**
-   - "Rough Sets Theory for Multicriteria Decision Analysis"
-   - European Journal of Operational Research
-   - MCDM uygulamaları
+2. **Molodtsov, D. (1999)**
+   - "Soft set theory—First results"
+   - Computers & Mathematics with Applications
+   - Soft Set Teorisi'nin temeli
+
+3. **Maji, P.K., Biswas, R., Roy, A.R. (2003)**
+   - "Soft set theory"
+   - Computers & Mathematics with Applications
+   - Soft Set uygulamaları
 
 ### İlgili Konular
 
 - **Fuzzy Set Theory:** Bulanık küme teorisi ile karşılaştırma
 - **MCDM Methods:** AHP, TOPSIS, ELECTRE, PROMETHEE
-- **Machine Learning:** Rough set tabanlı öznitelik seçimi
-- **Data Mining:** Rough set ile kural çıkarımı
-
-### Araçlar ve Kütüphaneler
-
-- **Python:** `rough-sets` paketi
-- **R:** `RoughSets` paketi
-- **MATLAB:** Rough Set Toolbox
+- **Soft Computing:** Soft set tabanlı karar destek sistemleri
+- **Data Analysis:** Çok kriterli değerlendirme
 
 ## Sonuç
 
-Bu implementasyon, RMVC yönteminin matematiksel olarak doğru ve pratik bir uygulamasıdır. Rough Set Theory'nin güçlü teorik temeli ile çok kriterli karar verme problemlerine etkili çözümler sunar. Kod, akademik çalışma ile tam uyumlu olup, gerçek dünya problemlerinde doğrudan kullanılabilir.
+Bu implementasyon, RMVC yönteminin matematiksel olarak doğru ve pratik bir uygulamasıdır. Soft Set Teorisi'nin güçlü teorik temeli ile çok kriterli karar verme problemlerine etkili çözümler sunar. Kod, akademik çalışma ile tam uyumlu olup, gerçek dünya problemlerinde doğrudan kullanılabilir.
