@@ -1,17 +1,19 @@
 # -*- coding: utf-8 -*-
 """
-RMVC Web Arayüzü v2 - Relational Membership Value Calculation
-=============================================================
+RMVC Web Arayüzü v2.1 - Relational Membership Value Calculation
+===============================================================
 Soft Set Teorisi tabanlı karar destek sistemi.
 
 Referans:
     Dayioglu, A.; Erdogan, F.O.; Celik, B. "RMVC: A Validated Algorithmic 
     Framework for Decision-Making Under Uncertainty". Mathematics 2025, 13, 2693.
 
-Düzeltmeler (v2):
+Düzeltmeler (v2.1):
 1. Delta fonksiyonu: Tüm kümelerde ikili sayımı (break kaldırıldı)
 2. Matris yönü: Satırlar=Parametreler, Sütunlar=Elemanlar
 3. Formül doğrulaması: Example 1 ile test edildi
+4. Hocanın CSV formatı desteği (Satırlar=Parametreler)
+5. Üyelik matrisi çıktısı hocanın formatına uygun
 
 Çalıştırma:
     streamlit run rmvc_app_v2.py --server.port 8515
