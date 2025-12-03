@@ -73,6 +73,14 @@ st.markdown("""
 # RMVC FONKSİYONLARI - MAKALEYE UYGUN DÜZELTILMIŞ VERSİYON
 # ============================================================
 
+def safe_sort_key(x):
+    """Güvenli sıralama - hem sayı hem string için çalışır."""
+    try:
+        return (0, int(str(x)))  # Sayılar önce
+    except (ValueError, TypeError):
+        return (1, str(x))  # Stringler sonra
+
+
 def csv_to_soft_set(df):
     """
     CSV verisini Soft Set formatına dönüştürür.
@@ -226,13 +234,7 @@ def matrix_to_dataframe(membership_matrix, U, E_info):
     Üyelik matrisini DataFrame'e dönüştürür.
     Satırlar = Parametreler, Sütunlar = Elemanlar (Makaledeki format)
     """
-    # Elemanları sırala (güvenli sıralama - hem sayı hem string için)
-    def safe_sort_key(x):
-        try:
-            return (0, int(x))  # Sayılar önce
-        except (ValueError, TypeError):
-            return (1, str(x))  # Stringler sonra
-    
+    # Elemanları sırala (güvenli sıralama)
     sorted_elements = sorted(U, key=safe_sort_key)
     
     data = []
@@ -493,7 +495,7 @@ def main():
                         'Orijinal ID': info['orijinal_ad'],
                         'Eleman Sayısı |Φ(eᵢ)|': info['eleman_sayisi'],
                         'γ(eᵢ)': info['eleman_sayisi'] * (len(E_named) - 1),
-                        'Elemanlar': ', '.join(sorted(info['elemanlar'], key=lambda x: int(x) if x.isdigit() else x))
+                        'Elemanlar': ', '.join(sorted(info['elemanlar'], key=safe_sort_key))
                     })
                 
                 param_df = pd.DataFrame(param_data)
