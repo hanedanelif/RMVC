@@ -108,10 +108,19 @@ def csv_to_soft_set(df, rows_are_params=False):
     if rows_are_params:
         # Hocanın formatı: Satırlar=Parametreler (e1,e2..), Sütunlar=Elemanlar (1,2..)
         parametre_ids = df.index.tolist()
-        eleman_ids = df.columns.tolist()
         
-        # U: Evrensel küme (sütunlar)
-        U = set(str(eid) for eid in eleman_ids)
+        # Sütunları al ve index adını (FirmaID gibi) temizle
+        eleman_ids = [str(c) for c in df.columns.tolist()]
+        # Sayısal olmayan sütunları filtrele (FirmaID, index adı vb.)
+        eleman_ids = [e for e in eleman_ids if e.replace('.','').replace('-','').isdigit() or 
+                      not any(c.isalpha() for c in e)]
+        
+        # Eğer filtreleme çok agresifse, sadece sayısal olanları al
+        if len(eleman_ids) == 0:
+            eleman_ids = [str(c) for c in df.columns.tolist()]
+        
+        # U: Evrensel küme (sütunlar - sadece sayısal olanlar)
+        U = set(eleman_ids)
         
         # E: Parametre kümeleri
         E_named = {}
@@ -124,8 +133,17 @@ def csv_to_soft_set(df, rows_are_params=False):
             phi_e = set()
             toplam_deger = 0
             
-            for eleman_id, deger in satir_verisi.items():
+            # Sadece eleman_ids'deki sütunları oku (FirmaID gibi olanları atla)
+            for eleman_id in eleman_ids:
                 try:
+                    # Sütun adını orijinal tipte bul
+                    col_name = eleman_id
+                    for c in df.columns:
+                        if str(c) == eleman_id:
+                            col_name = c
+                            break
+                    
+                    deger = satir_verisi[col_name]
                     numeric_val = pd.to_numeric(deger, errors='coerce')
                     if numeric_val > 0:
                         phi_e.add(str(eleman_id))
