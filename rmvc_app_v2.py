@@ -96,6 +96,7 @@ def param_sort_key(x):
 def csv_to_soft_set(df, rows_are_params=False):
     """
     CSV verisini Soft Set formatına dönüştürür.
+    Hocanın Colab koduna tam uyumlu.
     
     Makaledeki notasyon:
     - U: Evrensel küme (elemanlar/adaylar)
@@ -109,30 +110,35 @@ def csv_to_soft_set(df, rows_are_params=False):
     """
     if rows_are_params:
         # Hocanın formatı: Satırlar=Parametreler (e1,e2..), Sütunlar=Elemanlar (1,2..)
-        # Hocanın kodu gibi: Sütunları 1'den başlayarak yeniden numaralandır
         
         parametre_ids = df.index.tolist()
         original_columns = df.columns.tolist()
         
-        # Boş veya NaN sütunları filtrele
+        # Hocanın kodu: Sadece sayısal verileri olan sütunları al
+        # Boş, NaN, Unnamed ve tamamen 0 olan sütunları filtrele
         valid_columns = []
         for col in original_columns:
             col_str = str(col).strip()
             # Boş string, NaN, Unnamed sütunları atla
-            if col_str and col_str.lower() != 'nan' and not col_str.startswith('Unnamed'):
-                valid_columns.append(col)
+            if not col_str or col_str.lower() == 'nan' or col_str.startswith('Unnamed'):
+                continue
+            # Sütunda en az bir sayısal değer olmalı
+            try:
+                col_data = pd.to_numeric(df[col], errors='coerce')
+                if col_data.notna().any():
+                    valid_columns.append(col)
+            except:
+                pass
         
-        # Ürünleri 1'den başlayarak numaralandır (hocanın yaklaşımı)
-        eleman_ids = []
-        col_mapping = {}  # simple_id -> original_col
+        # Ürün sayısını belirle (hocanın yaklaşımı: 1'den başla)
+        num_products = len(valid_columns)
         
-        for idx, col in enumerate(valid_columns):
-            simple_id = str(idx + 1)  # "1", "2", "3"...
-            eleman_ids.append(simple_id)
-            col_mapping[simple_id] = col
-        
-        # U: Evrensel küme
+        # U: Evrensel küme - 1'den num_products'a kadar
+        eleman_ids = [str(i) for i in range(1, num_products + 1)]
         U = set(eleman_ids)
+        
+        # Sütun eşleştirmesi: simple_id -> original_col
+        col_mapping = {str(i+1): valid_columns[i] for i in range(num_products)}
         
         # E: Parametre kümeleri
         E_named = {}
@@ -146,7 +152,7 @@ def csv_to_soft_set(df, rows_are_params=False):
             phi_e = set()
             toplam_deger = 0
             
-            # Her sütunu kontrol et
+            # Her ürünü kontrol et
             for simple_id, orig_col in col_mapping.items():
                 try:
                     deger = satir_verisi[orig_col]
