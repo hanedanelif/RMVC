@@ -281,7 +281,11 @@ def main():
             value=False,
             help="Eğer dosyanızda Satırlar=Parametreler, Sütunlar=Elemanlar ise işaretleyin"
         )
-        bos_filtrele = st.checkbox("Boş kümeleri filtrele", value=True)
+        bos_filtrele = st.checkbox(
+            "Boş kümeleri filtrele", 
+            value=False,
+            help="İşaretlenirse hiç elemanı olmayan parametreler (boş kümeler) hesaplamadan çıkarılır. Hocanın yaklaşımı: dahil et (işaretsiz)"
+        )
         kesir_goster = st.checkbox("Kesir olarak göster", value=True)
         
         st.markdown("---")
