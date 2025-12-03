@@ -114,12 +114,19 @@ def csv_to_soft_set(df, rows_are_params=False):
         parametre_ids = df.index.tolist()
         original_columns = df.columns.tolist()
         
+        # Boş veya NaN sütunları filtrele
+        valid_columns = []
+        for col in original_columns:
+            col_str = str(col).strip()
+            # Boş string, NaN, Unnamed sütunları atla
+            if col_str and col_str.lower() != 'nan' and not col_str.startswith('Unnamed'):
+                valid_columns.append(col)
+        
         # Ürünleri 1'den başlayarak numaralandır (hocanın yaklaşımı)
-        # CSV'deki sütun sırasını koru, sadece string'e çevir
         eleman_ids = []
         col_mapping = {}  # simple_id -> original_col
         
-        for idx, col in enumerate(original_columns):
+        for idx, col in enumerate(valid_columns):
             simple_id = str(idx + 1)  # "1", "2", "3"...
             eleman_ids.append(simple_id)
             col_mapping[simple_id] = col
@@ -132,7 +139,8 @@ def csv_to_soft_set(df, rows_are_params=False):
         E_info = {}
         
         for i, param_id in enumerate(parametre_ids):
-            e_key = str(param_id)  # Orijinal parametre adını kullan (e1, e2, ...)
+            # Hocanın formatı: e_1, e_2, ... şeklinde adlandır
+            e_key = f"e_{i+1}"
             satir_verisi = df.loc[param_id]
             
             phi_e = set()
