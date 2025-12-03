@@ -226,8 +226,14 @@ def matrix_to_dataframe(membership_matrix, U, E_info):
     Üyelik matrisini DataFrame'e dönüştürür.
     Satırlar = Parametreler, Sütunlar = Elemanlar (Makaledeki format)
     """
-    # Elemanları sırala
-    sorted_elements = sorted(U, key=lambda x: int(x) if x.isdigit() else x)
+    # Elemanları sırala (güvenli sıralama - hem sayı hem string için)
+    def safe_sort_key(x):
+        try:
+            return (0, int(x))  # Sayılar önce
+        except (ValueError, TypeError):
+            return (1, str(x))  # Stringler sonra
+    
+    sorted_elements = sorted(U, key=safe_sort_key)
     
     data = []
     for e_i in sorted(membership_matrix.keys(), key=lambda x: int(x.split('_')[1])):
