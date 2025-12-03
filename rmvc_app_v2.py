@@ -282,20 +282,32 @@ def calculate_scores(membership_matrix, U):
 def matrix_to_dataframe(membership_matrix, U, E_info):
     """
     Üyelik matrisini DataFrame'e dönüştürür.
-    Satırlar = Parametreler, Sütunlar = Elemanlar (Makaledeki format)
+    Satırlar = Parametreler, Sütunlar = Elemanlar (Hocanın formatı)
+    
+    Format:
+    SETS    1       2       3       ...
+    e_1     0.0000  0.1111  0.0000  ...
+    e_2     0.0000  1.0000  0.0278  ...
     """
-    # Elemanları sırala (güvenli sıralama)
+    # Elemanları sayısal sıraya göre sırala (1, 2, 3, ...)
     sorted_elements = sorted(U, key=safe_sort_key)
     
     data = []
     for e_i in sorted(membership_matrix.keys(), key=param_sort_key):
-        row = {'Parametre': e_i, 'Orijinal': E_info[e_i]['orijinal_ad']}
+        row = {'SETS': e_i}  # İlk sütun parametre adı
         for u in sorted_elements:
             val = membership_matrix[e_i].get(u, Fraction(0, 1))
             row[u] = float(val)
         data.append(row)
     
-    return pd.DataFrame(data)
+    # DataFrame oluştur - sütun sırası: SETS, 1, 2, 3, ...
+    df = pd.DataFrame(data)
+    
+    # Sütunları doğru sıraya koy
+    cols = ['SETS'] + sorted_elements
+    df = df[cols]
+    
+    return df
 
 
 def get_element_detail(u, membership_matrix, E_info):
@@ -450,23 +462,48 @@ def main():
             
             # TAB 2: Üyelik Matrisi
             with tab2:
-                st.markdown("### 🔢 Üyelik Matrisi M(u, eᵢ)")
-                st.markdown("**Satırlar:** Parametreler (eᵢ) | **Sütunlar:** Elemanlar (u)")
+                st.markdown("### 🔢 MEMBERSHIP VALUE MATRIX (BAĞIL ÜYELİK MATRİSİ)")
+                st.markdown("**Satırlar:** Parametreler (SETS) | **Sütunlar:** Elemanlar (1, 2, 3, ...)")
                 
                 # Matrisi DataFrame'e dönüştür
                 matrix_df = matrix_to_dataframe(membership_matrix, U, E_info)
                 
-                # Sayısal sütunları al
-                numeric_cols = [c for c in matrix_df.columns if c not in ['Parametre', 'Orijinal']]
+                # Sayısal sütunları al (SETS hariç)
+                numeric_cols = [c for c in matrix_df.columns if c != 'SETS']
                 
-                # Kesir veya ondalık gösterim
-                if kesir_goster:
-                    display_df = matrix_df.copy()
-                    for col in numeric_cols:
-                        display_df[col] = display_df[col].apply(lambda x: f"{x:.4f}" if x != 1.0 else "1")
-                    st.dataframe(display_df, use_container_width=True)
-                else:
-                    st.dataframe(matrix_df.round(4), use_container_width=True)
+                # Görüntüleme için kopyala
+                display_df = matrix_df.copy()
+                for col in numeric_cols:
+                    display_df[col] = display_df[col].apply(lambda x: f"{x:.4f}")
+                
+                # SETS sütununu index yap (hocanın formatı gibi)
+                display_df = display_df.set_index('SETS')
+                st.dataframe(display_df, use_container_width=True)
+                
+                # SUM satırı ekle
+                st.markdown("### 📊 SUM s(x) - Sütun Toplamları")
+                col_sums = matrix_df[numeric_cols].sum()
+                sum_df = pd.DataFrame([col_sums.values], columns=numeric_cols, index=['SUM s(x)'])
+                sum_df = sum_df.applymap(lambda x: f"{x:.4f}")
+                st.dataframe(sum_df, use_container_width=True)
+                
+                # CSV Export butonu
+                st.markdown("### 📥 CSV İndir")
+                
+                # Export için tam matris (SUM dahil)
+                export_df = matrix_df.copy()
+                export_df = export_df.set_index('SETS')
+                sum_row = pd.DataFrame([matrix_df[numeric_cols].sum().values], 
+                                       columns=numeric_cols, index=['SUM s(x)'])
+                export_df = pd.concat([export_df, sum_row])
+                
+                csv_data = export_df.to_csv()
+                st.download_button(
+                    label="📥 Üyelik Matrisini CSV olarak indir",
+                    data=csv_data,
+                    file_name="membership_matrix.csv",
+                    mime="text/csv"
+                )
                 
                 # Heatmap
                 st.markdown("### 🗺️ Üyelik Matrisi Heatmap")
@@ -476,7 +513,7 @@ def main():
                 fig_heatmap = px.imshow(
                     heatmap_data,
                     x=numeric_cols,
-                    y=matrix_df['Parametre'].tolist(),
+                    y=matrix_df['SETS'].tolist(),
                     title='Üyelik Değerleri (Sarı=1, Mor=0)',
                     color_continuous_scale='Viridis',
                     aspect='auto',
@@ -484,15 +521,6 @@ def main():
                 )
                 fig_heatmap.update_layout(height=400)
                 st.plotly_chart(fig_heatmap, use_container_width=True)
-                
-                # Sütun toplamları (Skorlar)
-                st.markdown("### 📊 Sütun Toplamları = Skorlar")
-                col_sums = matrix_df[numeric_cols].sum()
-                col_sums_df = pd.DataFrame({
-                    'Eleman': col_sums.index,
-                    'Toplam Skor': col_sums.values.round(4)
-                }).sort_values('Toplam Skor', ascending=False)
-                st.dataframe(col_sums_df, use_container_width=True)
             
             # TAB 3: Grafikler
             with tab3:
