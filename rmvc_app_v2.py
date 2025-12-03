@@ -354,6 +354,73 @@ def get_element_detail(u, membership_matrix, E_info):
     return pd.DataFrame(details)
 
 
+def threshold_matrix(membership_matrix, U, threshold_value):
+    """
+    Üyelik matrisini eşik değerine göre binary matrise dönüştürür.
+    threshold_value üzerindeki değerler 1, altındakiler 0 olur.
+    """
+    binary_matrix = {}
+    for e_i in membership_matrix.keys():
+        binary_matrix[e_i] = {}
+        for u in U:
+            val = float(membership_matrix[e_i].get(u, Fraction(0, 1)))
+            binary_matrix[e_i][u] = 1 if val > threshold_value else 0
+    return binary_matrix
+
+
+def binary_to_dataframe(binary_matrix, U, E_info):
+    """Binary matrisi DataFrame'e dönüştürür."""
+    sorted_elements = sorted(U, key=safe_sort_key)
+    data = []
+    for e_i in sorted(binary_matrix.keys(), key=param_sort_key):
+        row = {'SETS': e_i}
+        for u in sorted_elements:
+            row[u] = binary_matrix[e_i].get(u, 0)
+        data.append(row)
+    
+    df = pd.DataFrame(data)
+    cols = ['SETS'] + sorted_elements
+    df = df[cols]
+    return df
+
+
+def compare_rankings(scores_old, scores_new):
+    """İki iterasyonun sıralamalarını karşılaştırır."""
+    sorted_old = sorted(scores_old.items(), key=lambda x: float(x[1]), reverse=True)
+    sorted_new = sorted(scores_new.items(), key=lambda x: float(x[1]), reverse=True)
+    
+    rank_old = {u: i+1 for i, (u, _) in enumerate(sorted_old)}
+    rank_new = {u: i+1 for i, (u, _) in enumerate(sorted_new)}
+    
+    comparison = []
+    for u in sorted(scores_old.keys(), key=safe_sort_key):
+        old_rank = rank_old[u]
+        new_rank = rank_new[u]
+        rank_change = old_rank - new_rank
+        
+        if rank_change > 0:
+            change_str = f"↑ +{rank_change}"
+            status = "🟢 Yükseldi"
+        elif rank_change < 0:
+            change_str = f"↓ {rank_change}"
+            status = "🔴 Düştü"
+        else:
+            change_str = "="
+            status = "⚪ Aynı"
+        
+        comparison.append({
+            'Eleman': u,
+            'Eski Rank': old_rank,
+            'Yeni Rank': new_rank,
+            'Değişim': change_str,
+            'Durum': status,
+            'Eski Skor': round(float(scores_old[u]), 4),
+            'Yeni Skor': round(float(scores_new[u]), 4)
+        })
+    
+    return pd.DataFrame(comparison)
+
+
 # ============================================================
 # STREAMLIT ARAYÜZÜ
 # ============================================================
@@ -444,12 +511,13 @@ def main():
                 best_choices = [u for u, s in sorted_scores if float(s) == best_score]
             
             # Sonuç Tabları
-            tab1, tab2, tab3, tab4, tab5 = st.tabs([
+            tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
                 "🏆 Sonuçlar", 
                 "🔢 Üyelik Matrisi",
                 "📊 Grafikler",
                 "📈 Parametre Analizi",
-                "🔍 Detaylı Analiz"
+                "🔍 Detaylı Analiz",
+                "🔄 İteratif Analiz"
             ])
             
             # TAB 1: Sonuçlar
@@ -660,6 +728,227 @@ def main():
                         title=f'Eleman {selected_u} - Parametre Üyelik Profili'
                     )
                     st.plotly_chart(fig_radar, use_container_width=True)
+            
+            # TAB 6: İteratif Analiz
+            with tab6:
+                st.markdown("### 🔄 İteratif RMVC Analizi")
+                st.markdown("""
+                Bu bölümde üyelik matrisini eşikleyerek yeni bir binary matris oluşturabilir 
+                ve RMVC algoritmasını tekrar çalıştırarak sıralama değişimlerini gözlemleyebilirsiniz.
+                """)
+                
+                # Session state başlat
+                if 'iterations' not in st.session_state:
+                    st.session_state.iterations = [{
+                        'iteration': 0,
+                        'membership_matrix': membership_matrix,
+                        'scores': scores,
+                        'threshold': None,
+                        'binary_matrix': None
+                    }]
+                
+                current_iter = len(st.session_state.iterations) - 1
+                current_data = st.session_state.iterations[current_iter]
+                
+                # Mevcut iterasyon bilgisi
+                st.info(f"📍 Şu anda İterasyon {current_iter} üzerindesiniz.")
+                
+                # Üyelik matrisi istatistikleri
+                st.markdown("#### 📊 Mevcut Üyelik Matrisi İstatistikleri")
+                
+                col1, col2, col3, col4 = st.columns(4)
+                
+                all_values = []
+                for row in current_data['membership_matrix'].values():
+                    all_values.extend([float(v) for v in row.values()])
+                
+                with col1:
+                    st.metric("Min Değer", f"{min(all_values):.4f}")
+                with col2:
+                    st.metric("Max Değer", f"{max(all_values):.4f}")
+                with col3:
+                    st.metric("Ortalama", f"{np.mean(all_values):.4f}")
+                with col4:
+                    st.metric("Std Sapma", f"{np.std(all_values):.4f}")
+                
+                # Değer dağılımı histogram
+                st.markdown("#### 📈 Değer Dağılımı")
+                fig_dist = px.histogram(
+                    x=all_values,
+                    nbins=20,
+                    title='Üyelik Değerlerinin Dağılımı',
+                    labels={'x': 'Üyelik Değeri', 'y': 'Frekans'}
+                )
+                fig_dist.add_vline(x=np.mean(all_values), line_dash="dash", line_color="red", 
+                                   annotation_text="Ortalama")
+                st.plotly_chart(fig_dist, use_container_width=True)
+                
+                # Eşik değer seçimi
+                st.markdown("#### 🎯 Eşik Değer Seçimi")
+                
+                threshold = st.slider(
+                    "Eşik değeri belirleyin (bu değerin üzerindeki değerler 1, altındakiler 0 olacak):",
+                    min_value=0.0,
+                    max_value=1.0,
+                    value=0.5,
+                    step=0.01,
+                    help="Seçilen eşik değerine göre yeni bir binary matris oluşturulur"
+                )
+                
+                # Eşik analizi
+                values_above = sum(1 for v in all_values if v > threshold)
+                values_below = len(all_values) - values_above
+                
+                col1, col2 = st.columns(2)
+                with col1:
+                    st.metric(f"1'e Dönüşecek ({threshold:.2f} üzeri)", values_above)
+                with col2:
+                    st.metric(f"0'a Dönüşecek ({threshold:.2f} ve altı)", values_below)
+                
+                # Eşikleme uygula butonu
+                if st.button("🔄 Eşikleme Uygula ve Yeni İterasyon Başlat", type="primary"):
+                    with st.spinner("Yeni iterasyon hesaplanıyor..."):
+                        # Eşikleme uygula
+                        binary_matrix = threshold_matrix(current_data['membership_matrix'], U, threshold)
+                        
+                        # Binary matrisi soft set formatına dönüştür
+                        new_E_named = {}
+                        for e_key in binary_matrix.keys():
+                            new_E_named[e_key] = set()
+                            for u, val in binary_matrix[e_key].items():
+                                if val == 1:
+                                    new_E_named[e_key].add(u)
+                        
+                        # Yeni RMVC hesapla
+                        new_membership_matrix = create_membership_matrix(new_E_named, U)
+                        new_scores = calculate_scores(new_membership_matrix, U)
+                        
+                        # Yeni iterasyonu kaydet
+                        st.session_state.iterations.append({
+                            'iteration': current_iter + 1,
+                            'membership_matrix': new_membership_matrix,
+                            'scores': new_scores,
+                            'threshold': threshold,
+                            'binary_matrix': binary_matrix
+                        })
+                        
+                        st.success(f"✅ İterasyon {current_iter + 1} oluşturuldu!")
+                        st.rerun()
+                
+                # İterasyon karşılaştırması
+                if current_iter > 0:
+                    st.markdown("---")
+                    st.markdown("#### 📊 İterasyon Karşılaştırması")
+                    
+                    # Hangi iterasyonları karşılaştıracak
+                    col1, col2 = st.columns(2)
+                    with col1:
+                        iter_a = st.selectbox(
+                            "İterasyon A:",
+                            range(len(st.session_state.iterations)),
+                            index=max(0, current_iter - 1),
+                            format_func=lambda x: f"İterasyon {x}"
+                        )
+                    with col2:
+                        iter_b = st.selectbox(
+                            "İterasyon B:",
+                            range(len(st.session_state.iterations)),
+                            index=current_iter,
+                            format_func=lambda x: f"İterasyon {x}"
+                        )
+                    
+                    if iter_a != iter_b:
+                        data_a = st.session_state.iterations[iter_a]
+                        data_b = st.session_state.iterations[iter_b]
+                        
+                        # Sıralama karşılaştırma
+                        comparison_df = compare_rankings(data_a['scores'], data_b['scores'])
+                        
+                        st.markdown(f"##### 🔄 İterasyon {iter_a} → İterasyon {iter_b} Sıralama Değişimleri")
+                        
+                        # İstatistikler
+                        num_up = len(comparison_df[comparison_df['Durum'] == '🟢 Yükseldi'])
+                        num_down = len(comparison_df[comparison_df['Durum'] == '🔴 Düştü'])
+                        num_same = len(comparison_df[comparison_df['Durum'] == '⚪ Aynı'])
+                        
+                        col1, col2, col3 = st.columns(3)
+                        with col1:
+                            st.metric("🟢 Yükselenler", num_up)
+                        with col2:
+                            st.metric("🔴 Düşenler", num_down)
+                        with col3:
+                            st.metric("⚪ Aynı Kalanlar", num_same)
+                        
+                        # Karşılaştırma tablosu
+                        st.dataframe(comparison_df, use_container_width=True, height=400)
+                        
+                        # Skor değişimi grafiği
+                        st.markdown("##### 📈 Skor Değişimleri")
+                        
+                        fig_change = go.Figure()
+                        
+                        elements = comparison_df['Eleman'].tolist()
+                        old_scores = comparison_df['Eski Skor'].tolist()
+                        new_scores = comparison_df['Yeni Skor'].tolist()
+                        
+                        fig_change.add_trace(go.Scatter(
+                            x=elements,
+                            y=old_scores,
+                            mode='markers+lines',
+                            name=f'İterasyon {iter_a}',
+                            marker=dict(size=8)
+                        ))
+                        
+                        fig_change.add_trace(go.Scatter(
+                            x=elements,
+                            y=new_scores,
+                            mode='markers+lines',
+                            name=f'İterasyon {iter_b}',
+                            marker=dict(size=8)
+                        ))
+                        
+                        fig_change.update_layout(
+                            title='Elemanların Skor Değişimleri',
+                            xaxis_title='Eleman',
+                            yaxis_title='Skor',
+                            hovermode='x unified'
+                        )
+                        
+                        st.plotly_chart(fig_change, use_container_width=True)
+                
+                # İterasyon geçmişi
+                if len(st.session_state.iterations) > 1:
+                    st.markdown("---")
+                    st.markdown("#### 📜 İterasyon Geçmişi")
+                    
+                    history_data = []
+                    for i, iter_data in enumerate(st.session_state.iterations):
+                        sorted_iter = sorted(iter_data['scores'].items(), 
+                                           key=lambda x: float(x[1]), reverse=True)
+                        top_3 = [u for u, _ in sorted_iter[:3]]
+                        
+                        history_data.append({
+                            'İterasyon': i,
+                            'Eşik Değer': iter_data['threshold'] if iter_data['threshold'] is not None else 'N/A',
+                            'Top 1': top_3[0] if len(top_3) > 0 else '',
+                            'Top 2': top_3[1] if len(top_3) > 1 else '',
+                            'Top 3': top_3[2] if len(top_3) > 2 else ''
+                        })
+                    
+                    history_df = pd.DataFrame(history_data)
+                    st.dataframe(history_df, use_container_width=True)
+                    
+                    # Sıfırla butonu
+                    if st.button("🔄 Tüm İterasyonları Sıfırla"):
+                        st.session_state.iterations = [{
+                            'iteration': 0,
+                            'membership_matrix': membership_matrix,
+                            'scores': scores,
+                            'threshold': None,
+                            'binary_matrix': None
+                        }]
+                        st.success("✅ İterasyonlar sıfırlandı!")
+                        st.rerun()
             
             # İndirme butonları
             st.markdown("---")
