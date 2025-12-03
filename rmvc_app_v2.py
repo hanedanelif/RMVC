@@ -81,50 +81,100 @@ def safe_sort_key(x):
         return (1, str(x))  # Stringler sonra
 
 
-def csv_to_soft_set(df):
+def param_sort_key(x):
+    """Parametre sıralama - e1, e2, e_1, e_2 gibi formatları destekler."""
+    import re
+    # Sayıyı bul (e1 -> 1, e_1 -> 1, param_10 -> 10)
+    match = re.search(r'(\d+)', str(x))
+    if match:
+        return int(match.group(1))
+    return str(x)
+
+
+def csv_to_soft_set(df, rows_are_params=False):
     """
     CSV verisini Soft Set formatına dönüştürür.
     
     Makaledeki notasyon:
-    - U: Evrensel küme (satırlar = elemanlar/adaylar)
-    - E: Parametre kümesi (sütunlar = kriterler)
+    - U: Evrensel küme (elemanlar/adaylar)
+    - E: Parametre kümesi (kriterler)
     - Φ(e_i): e_i parametresine ait elemanlar kümesi
+    
+    Args:
+        df: DataFrame
+        rows_are_params: True ise satırlar=parametreler, sütunlar=elemanlar (Hocanın formatı)
+                        False ise satırlar=elemanlar, sütunlar=parametreler
     """
-    # Satırlar = Elemanlar (U), Sütunlar = Parametreler (E)
-    eleman_ids = df.index.tolist()
-    parametre_ids = df.columns.tolist()
-    
-    # U: Evrensel küme
-    U = set(str(eid) for eid in eleman_ids)
-    
-    # E: Parametre kümeleri - Φ(e_i) = {u ∈ U : değer > 0}
-    E_named = {}
-    E_info = {}
-    
-    for i, param_id in enumerate(parametre_ids):
-        e_key = f"e_{i+1}"
-        sutun_verisi = df[param_id]
+    if rows_are_params:
+        # Hocanın formatı: Satırlar=Parametreler (e1,e2..), Sütunlar=Elemanlar (1,2..)
+        parametre_ids = df.index.tolist()
+        eleman_ids = df.columns.tolist()
         
-        # Φ(e_i): Bu parametreye ait elemanlar
-        phi_e = set()
-        toplam_deger = 0
+        # U: Evrensel küme (sütunlar)
+        U = set(str(eid) for eid in eleman_ids)
         
-        for eleman_id, deger in sutun_verisi.items():
-            try:
-                numeric_val = pd.to_numeric(deger, errors='coerce')
-                if numeric_val > 0:
-                    phi_e.add(str(eleman_id))
-                    toplam_deger += numeric_val
-            except:
-                pass
+        # E: Parametre kümeleri
+        E_named = {}
+        E_info = {}
         
-        E_named[e_key] = phi_e
-        E_info[e_key] = {
-            'orijinal_ad': str(param_id),
-            'eleman_sayisi': len(phi_e),
-            'toplam_deger': toplam_deger,
-            'elemanlar': phi_e
-        }
+        for i, param_id in enumerate(parametre_ids):
+            e_key = str(param_id)  # Orijinal parametre adını kullan (e1, e2, ...)
+            satir_verisi = df.loc[param_id]
+            
+            phi_e = set()
+            toplam_deger = 0
+            
+            for eleman_id, deger in satir_verisi.items():
+                try:
+                    numeric_val = pd.to_numeric(deger, errors='coerce')
+                    if numeric_val > 0:
+                        phi_e.add(str(eleman_id))
+                        toplam_deger += numeric_val
+                except:
+                    pass
+            
+            E_named[e_key] = phi_e
+            E_info[e_key] = {
+                'orijinal_ad': str(param_id),
+                'eleman_sayisi': len(phi_e),
+                'toplam_deger': toplam_deger,
+                'elemanlar': phi_e
+            }
+    else:
+        # Varsayılan format: Satırlar=Elemanlar, Sütunlar=Parametreler
+        eleman_ids = df.index.tolist()
+        parametre_ids = df.columns.tolist()
+        
+        # U: Evrensel küme (satırlar)
+        U = set(str(eid) for eid in eleman_ids)
+        
+        # E: Parametre kümeleri
+        E_named = {}
+        E_info = {}
+        
+        for i, param_id in enumerate(parametre_ids):
+            e_key = f"e_{i+1}"
+            sutun_verisi = df[param_id]
+            
+            phi_e = set()
+            toplam_deger = 0
+            
+            for eleman_id, deger in sutun_verisi.items():
+                try:
+                    numeric_val = pd.to_numeric(deger, errors='coerce')
+                    if numeric_val > 0:
+                        phi_e.add(str(eleman_id))
+                        toplam_deger += numeric_val
+                except:
+                    pass
+            
+            E_named[e_key] = phi_e
+            E_info[e_key] = {
+                'orijinal_ad': str(param_id),
+                'eleman_sayisi': len(phi_e),
+                'toplam_deger': toplam_deger,
+                'elemanlar': phi_e
+            }
     
     return U, E_named, E_info, eleman_ids, parametre_ids
 
@@ -238,7 +288,7 @@ def matrix_to_dataframe(membership_matrix, U, E_info):
     sorted_elements = sorted(U, key=safe_sort_key)
     
     data = []
-    for e_i in sorted(membership_matrix.keys(), key=lambda x: int(x.split('_')[1])):
+    for e_i in sorted(membership_matrix.keys(), key=param_sort_key):
         row = {'Parametre': e_i, 'Orijinal': E_info[e_i]['orijinal_ad']}
         for u in sorted_elements:
             val = membership_matrix[e_i].get(u, Fraction(0, 1))
@@ -251,7 +301,7 @@ def matrix_to_dataframe(membership_matrix, U, E_info):
 def get_element_detail(u, membership_matrix, E_info):
     """Bir elemanın tüm parametrelerdeki üyelik değerlerini döndürür."""
     details = []
-    for e_i in sorted(membership_matrix.keys(), key=lambda x: int(x.split('_')[1])):
+    for e_i in sorted(membership_matrix.keys(), key=param_sort_key):
         val = membership_matrix[e_i].get(u, Fraction(0, 1))
         details.append({
             'Parametre': e_i,
@@ -284,10 +334,10 @@ def main():
         st.markdown("---")
         st.markdown("### ⚙️ Ayarlar")
         
-        transpose_matrix = st.checkbox(
-            "Matrisi transpose et", 
-            value=False,
-            help="Eğer dosyanızda Satırlar=Parametreler, Sütunlar=Elemanlar ise işaretleyin"
+        rows_are_params = st.checkbox(
+            "Satırlar = Parametreler (Hocanın formatı)", 
+            value=True,
+            help="✅ İşaretli: Satırlar=Parametreler(e1,e2..), Sütunlar=Elemanlar(1,2..) - Hocanın CSV formatı"
         )
         bos_filtrele = st.checkbox(
             "Boş kümeleri filtrele", 
@@ -318,12 +368,12 @@ def main():
             else:
                 df = pd.read_excel(uploaded_file, index_col=0)
             
-            # Transpose seçeneği
-            if transpose_matrix:
-                df = df.T
-                st.info("ℹ️ Matris transpose edildi (Satırlar↔Sütunlar)")
-            
-            st.success(f"✅ Dosya yüklendi: {uploaded_file.name} ({df.shape[0]} eleman × {df.shape[1]} parametre)")
+            # Format bilgisi
+            if rows_are_params:
+                st.info("📊 Format: Satırlar=Parametreler, Sütunlar=Elemanlar (Hocanın formatı)")
+                st.success(f"✅ Dosya yüklendi: {uploaded_file.name} ({df.shape[0]} parametre × {df.shape[1]} eleman)")
+            else:
+                st.success(f"✅ Dosya yüklendi: {uploaded_file.name} ({df.shape[0]} eleman × {df.shape[1]} parametre)")
             
             # Veri önizleme
             with st.expander("📋 Yüklenen Veri (Girdi Matrisi)", expanded=False):
@@ -331,7 +381,7 @@ def main():
             
             # RMVC Analizi
             with st.spinner("🔄 RMVC analizi yapılıyor..."):
-                U, E_named, E_info, eleman_ids, parametre_ids = csv_to_soft_set(df)
+                U, E_named, E_info, eleman_ids, parametre_ids = csv_to_soft_set(df, rows_are_params=rows_are_params)
                 
                 # Filtreleme
                 if bos_filtrele:
@@ -488,7 +538,7 @@ def main():
                 st.markdown("### 📈 Parametre (Kriter) Analizi")
                 
                 param_data = []
-                for e_i in sorted(E_info.keys(), key=lambda x: int(x.split('_')[1])):
+                for e_i in sorted(E_info.keys(), key=param_sort_key):
                     info = E_info[e_i]
                     param_data.append({
                         'Parametre': e_i,
