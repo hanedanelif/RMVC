@@ -354,18 +354,35 @@ def get_element_detail(u, membership_matrix, E_info):
     return pd.DataFrame(details)
 
 
-def threshold_matrix(membership_matrix, U, threshold_value):
+def threshold_matrix(membership_matrix, U, threshold_value, keep_below_threshold=False):
     """
-    Üyelik matrisini eşik değerine göre binary matrise dönüştürür.
-    threshold_value üzerindeki değerler 1, altındakiler 0 olur.
+    Üyelik matrisini eşik değerine göre dönüştürür.
+    
+    Args:
+        membership_matrix: Üyelik matrisi
+        U: Evrensel küme
+        threshold_value: Eşik değeri
+        keep_below_threshold: True ise eşik altındaki değerler aynı kalır,
+                             False ise 0'a dönüşür
+    
+    Returns:
+        Dönüştürülmüş matris (binary veya mixed)
     """
-    binary_matrix = {}
+    new_matrix = {}
     for e_i in membership_matrix.keys():
-        binary_matrix[e_i] = {}
+        new_matrix[e_i] = {}
         for u in U:
             val = float(membership_matrix[e_i].get(u, Fraction(0, 1)))
-            binary_matrix[e_i][u] = 1 if val > threshold_value else 0
-    return binary_matrix
+            if val > threshold_value:
+                new_matrix[e_i][u] = 1
+            else:
+                if keep_below_threshold:
+                    # Eşik altındaki değerler aynı kalır
+                    new_matrix[e_i][u] = val
+                else:
+                    # Eşik altındaki değerler 0 olur
+                    new_matrix[e_i][u] = 0
+    return new_matrix
 
 
 def binary_to_dataframe(binary_matrix, U, E_info):
@@ -386,9 +403,11 @@ def binary_to_dataframe(binary_matrix, U, E_info):
 
 def compare_rankings(scores_old, scores_new):
     """İki iterasyonun sıralamalarını karşılaştırır."""
-    sorted_old = sorted(scores_old.items(), key=lambda x: float(x[1]), reverse=True)
-    sorted_new = sorted(scores_new.items(), key=lambda x: float(x[1]), reverse=True)
+    # Skorları büyükten küçüğe sırala
+    sorted_old = sorted(scores_old.items(), key=lambda x: (-float(x[1]), x[0]))
+    sorted_new = sorted(scores_new.items(), key=lambda x: (-float(x[1]), x[0]))
     
+    # Rank sözlükleri oluştur (1'den başlayarak)
     rank_old = {u: i+1 for i, (u, _) in enumerate(sorted_old)}
     rank_new = {u: i+1 for i, (u, _) in enumerate(sorted_new)}
     
@@ -418,7 +437,10 @@ def compare_rankings(scores_old, scores_new):
             'Yeni Skor': round(float(scores_new[u]), 4)
         })
     
-    return pd.DataFrame(comparison)
+    # Tabloyu Eski Rank'e göre sırala (anlaşılır olması için)
+    df = pd.DataFrame(comparison)
+    df = df.sort_values('Eski Rank')
+    return df
 
 
 # ============================================================
@@ -744,7 +766,8 @@ def main():
                         'membership_matrix': membership_matrix,
                         'scores': scores,
                         'threshold': None,
-                        'binary_matrix': None
+                        'keep_below': None,
+                        'thresholded_matrix': None
                     }]
                 
                 current_iter = len(st.session_state.iterations) - 1
@@ -787,12 +810,21 @@ def main():
                 st.markdown("#### 🎯 Eşik Değer Seçimi")
                 
                 threshold = st.slider(
-                    "Eşik değeri belirleyin (bu değerin üzerindeki değerler 1, altındakiler 0 olacak):",
+                    "Eşik değeri belirleyin:",
                     min_value=0.0,
                     max_value=1.0,
                     value=0.5,
                     step=0.01,
-                    help="Seçilen eşik değerine göre yeni bir binary matris oluşturulur"
+                    help="Eşik değerinin üzerindeki değerler 1'e dönüşür"
+                )
+                
+                # Eşik altındaki değerler için seçenek
+                st.markdown("**Eşik Altındaki Değerler:**")
+                keep_below = st.radio(
+                    "Eşik değerinin altında kalan değerlere ne olsun?",
+                    options=[False, True],
+                    format_func=lambda x: "0'a dönüştür (Binary)" if not x else "Aynı kalsın (Mixed)",
+                    help="Binary: Eşik altı → 0, Mixed: Eşik altı → orijinal değer"
                 )
                 
                 # Eşik analizi
@@ -803,20 +835,24 @@ def main():
                 with col1:
                     st.metric(f"1'e Dönüşecek ({threshold:.2f} üzeri)", values_above)
                 with col2:
-                    st.metric(f"0'a Dönüşecek ({threshold:.2f} ve altı)", values_below)
+                    if keep_below:
+                        st.metric(f"Aynı Kalacak ({threshold:.2f} ve altı)", values_below)
+                    else:
+                        st.metric(f"0'a Dönüşecek ({threshold:.2f} ve altı)", values_below)
                 
                 # Eşikleme uygula butonu
                 if st.button("🔄 Eşikleme Uygula ve Yeni İterasyon Başlat", type="primary"):
                     with st.spinner("Yeni iterasyon hesaplanıyor..."):
-                        # Eşikleme uygula
-                        binary_matrix = threshold_matrix(current_data['membership_matrix'], U, threshold)
+                        # Eşikleme uygula (yeni parametre ile)
+                        thresholded_matrix = threshold_matrix(current_data['membership_matrix'], U, threshold, keep_below)
                         
-                        # Binary matrisi soft set formatına dönüştür
+                        # Eşiklenmiş matrisi soft set formatına dönüştür
                         new_E_named = {}
-                        for e_key in binary_matrix.keys():
+                        for e_key in thresholded_matrix.keys():
                             new_E_named[e_key] = set()
-                            for u, val in binary_matrix[e_key].items():
-                                if val == 1:
+                            for u, val in thresholded_matrix[e_key].items():
+                                # Eğer değer 1 ise veya (keep_below=True ve değer > 0 ise) ekle
+                                if val >= 1 or (keep_below and val > 0):
                                     new_E_named[e_key].add(u)
                         
                         # Yeni RMVC hesapla
@@ -829,7 +865,8 @@ def main():
                             'membership_matrix': new_membership_matrix,
                             'scores': new_scores,
                             'threshold': threshold,
-                            'binary_matrix': binary_matrix
+                            'keep_below': keep_below,
+                            'thresholded_matrix': thresholded_matrix
                         })
                         
                         st.success(f"✅ İterasyon {current_iter + 1} oluşturuldu!")
@@ -860,6 +897,30 @@ def main():
                     if iter_a != iter_b:
                         data_a = st.session_state.iterations[iter_a]
                         data_b = st.session_state.iterations[iter_b]
+                        
+                        # Eşiklenmiş matris gösterimi (varsa)
+                        if 'thresholded_matrix' in data_b and data_b['thresholded_matrix'] is not None:
+                            st.markdown(f"##### 📋 İterasyon {iter_b} - Eşiklenmiş Matris")
+                            
+                            # Eşik bilgisi
+                            threshold_val = data_b.get('threshold', 'N/A')
+                            keep_below_val = data_b.get('keep_below', False)
+                            mode_text = "Mixed (Eşik altı aynı kaldı)" if keep_below_val else "Binary (Eşik altı 0'a dönüştü)"
+                            
+                            st.info(f"🎯 Eşik: {threshold_val:.2f} | Mod: {mode_text}")
+                            
+                            # Eşiklenmiş matrisi DataFrame'e çevir
+                            thresholded_df = binary_to_dataframe(data_b['thresholded_matrix'], U, E_info)
+                            st.dataframe(thresholded_df, use_container_width=True)
+                            
+                            st.markdown("---")
+                        
+                        # Yeni üyelik matrisi gösterimi
+                        st.markdown(f"##### 🔢 İterasyon {iter_b} - Yeni Üyelik Matrisi")
+                        new_membership_df = matrix_to_dataframe(data_b['membership_matrix'], U, E_info)
+                        st.dataframe(new_membership_df, use_container_width=True)
+                        
+                        st.markdown("---")
                         
                         # Sıralama karşılaştırma
                         comparison_df = compare_rankings(data_a['scores'], data_b['scores'])
@@ -945,7 +1006,8 @@ def main():
                             'membership_matrix': membership_matrix,
                             'scores': scores,
                             'threshold': None,
-                            'binary_matrix': None
+                            'keep_below': None,
+                            'thresholded_matrix': None
                         }]
                         st.success("✅ İterasyonlar sıfırlandı!")
                         st.rerun()
