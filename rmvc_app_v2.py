@@ -641,6 +641,55 @@ def main():
                 )
                 fig_heatmap.update_layout(height=400)
                 st.plotly_chart(fig_heatmap, use_container_width=True)
+                
+                # Kullanıcı bazlı ürün tercihleri
+                st.markdown("### 👤 Kullanıcı Bazlı Ürün Tercih Sıralaması")
+                st.info("Her kullanıcı (parametre/satır) için ürünler üyelik değerlerine göre büyükten küçüğe sıralanmıştır. 1 olan değerler hariç tutulmuştur.")
+                
+                # Her parametre için tercih sıralaması oluştur
+                for param_name in matrix_df['SETS'].tolist():
+                    with st.expander(f"📋 {param_name} - Ürün Tercihleri"):
+                        # Bu parametrenin üyelik değerlerini al
+                        param_values = {}
+                        for col in numeric_cols:
+                            val = float(membership_matrix[param_name][col])
+                            # 1 olmayan değerleri al (1'ler zaten tam üyelik, sıralamaya gerek yok)
+                            if val < 1.0:
+                                param_values[col] = val
+                        
+                        if param_values:
+                            # Büyükten küçüğe sırala
+                            sorted_prefs = sorted(param_values.items(), key=lambda x: (-x[1], x[0]))
+                            
+                            # Tablo oluştur
+                            pref_data = []
+                            for rank, (product, value) in enumerate(sorted_prefs, 1):
+                                pref_data.append({
+                                    "Sıra": rank,
+                                    "Ürün": product,
+                                    "Üyelik Değeri": f"{value:.4f}",
+                                    "Tercih Seviyesi": "🔴 Düşük" if value < 0.33 else ("🟡 Orta" if value < 0.67 else "🟢 Yüksek")
+                                })
+                            
+                            pref_df = pd.DataFrame(pref_data)
+                            st.dataframe(pref_df, use_container_width=True, hide_index=True)
+                            
+                            # Özet istatistik
+                            col1, col2, col3 = st.columns(3)
+                            with col1:
+                                st.metric("Toplam Ürün (1 hariç)", len(sorted_prefs))
+                            with col2:
+                                st.metric("En Çok Tercih Edilen", f"{sorted_prefs[0][0]} ({sorted_prefs[0][1]:.4f})")
+                            with col3:
+                                avg_val = sum(v for _, v in sorted_prefs) / len(sorted_prefs)
+                                st.metric("Ortalama Üyelik", f"{avg_val:.4f}")
+                        else:
+                            st.warning(f"⚠️ {param_name} için tüm ürünler tam üyelik (1.0) değerine sahip. Sıralama yapılamıyor.")
+                        
+                        # 1 olan ürünleri de göster
+                        full_members = [col for col in numeric_cols if float(membership_matrix[param_name][col]) == 1.0]
+                        if full_members:
+                            st.success(f"✅ Tam Üyelik (1.0) olan ürünler: {', '.join(map(str, full_members))}")
             
             # TAB 3: Grafikler
             with tab3:
@@ -958,6 +1007,58 @@ def main():
                         st.markdown(f"##### 🔢 İterasyon {iter_b} - Yeni Üyelik Matrisi")
                         new_membership_df = matrix_to_dataframe(data_b['membership_matrix'], U, E_info)
                         st.dataframe(new_membership_df, use_container_width=True)
+                        
+                        # Kullanıcı bazlı ürün tercihleri (İterasyon B için)
+                        st.markdown(f"##### 👤 İterasyon {iter_b} - Kullanıcı Bazlı Ürün Tercih Sıralaması")
+                        st.info("Her kullanıcı (parametre/satır) için ürünler üyelik değerlerine göre büyükten küçüğe sıralanmıştır. 1 olan değerler hariç tutulmuştur.")
+                        
+                        # Üyelik matrisinden sütun isimlerini al
+                        iter_b_matrix = data_b['membership_matrix']
+                        param_names = list(iter_b_matrix.keys())
+                        
+                        for param_name in param_names:
+                            with st.expander(f"📋 {param_name} - Ürün Tercihleri"):
+                                # Bu parametrenin üyelik değerlerini al
+                                param_values = {}
+                                for product in U:
+                                    val = float(iter_b_matrix[param_name].get(product, 0))
+                                    # 1 olmayan değerleri al
+                                    if val < 1.0:
+                                        param_values[product] = val
+                                
+                                if param_values:
+                                    # Büyükten küçüğe sırala
+                                    sorted_prefs = sorted(param_values.items(), key=lambda x: (-x[1], x[0]))
+                                    
+                                    # Tablo oluştur
+                                    pref_data = []
+                                    for rank, (product, value) in enumerate(sorted_prefs, 1):
+                                        pref_data.append({
+                                            "Sıra": rank,
+                                            "Ürün": product,
+                                            "Üyelik Değeri": f"{value:.4f}",
+                                            "Tercih Seviyesi": "🔴 Düşük" if value < 0.33 else ("🟡 Orta" if value < 0.67 else "🟢 Yüksek")
+                                        })
+                                    
+                                    pref_df = pd.DataFrame(pref_data)
+                                    st.dataframe(pref_df, use_container_width=True, hide_index=True)
+                                    
+                                    # Özet istatistik
+                                    col1, col2, col3 = st.columns(3)
+                                    with col1:
+                                        st.metric("Toplam Ürün (1 hariç)", len(sorted_prefs))
+                                    with col2:
+                                        st.metric("En Çok Tercih Edilen", f"{sorted_prefs[0][0]} ({sorted_prefs[0][1]:.4f})")
+                                    with col3:
+                                        avg_val = sum(v for _, v in sorted_prefs) / len(sorted_prefs)
+                                        st.metric("Ortalama Üyelik", f"{avg_val:.4f}")
+                                else:
+                                    st.warning(f"⚠️ {param_name} için tüm ürünler tam üyelik (1.0) değerine sahip. Sıralama yapılamıyor.")
+                                
+                                # 1 olan ürünleri de göster
+                                full_members = [product for product in U if float(iter_b_matrix[param_name].get(product, 0)) == 1.0]
+                                if full_members:
+                                    st.success(f"✅ Tam Üyelik (1.0) olan ürünler: {', '.join(map(str, full_members))}")
                         
                         st.markdown("---")
                         
