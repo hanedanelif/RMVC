@@ -48,14 +48,15 @@ http://localhost:8515
 
 ```
 RMVC/
-├── rmvc_app_v2.py          # 🌐 Ana web uygulaması (Streamlit)
-├── RMVC-git.py             # 📟 Orijinal konsol uygulaması
-├── RMVC-csv.py             # 📄 CSV entegreli konsol versiyonu
-├── test_example1.py        # ✅ Makale doğrulama testi
-├── Example.1..xlsx         # 📊 Örnek veri (Makaledeki Example 1)
-├── README.md               # 📖 Bu dosya
-├── RMVC-git-ACIKLAMA.md    # 📚 Detaylı Türkçe açıklama
-└── requirements.txt        # 📦 Python bağımlılıkları
+├── rmvc_app_v2.py                      # 🌐 Ana web uygulaması (Streamlit)
+├── RMVC-git.py                         # 📟 Orijinal konsol uygulaması
+├── RMVC-csv.py                         # 📄 CSV entegreli konsol versiyonu
+├── test_example1.py                    # ✅ Makale doğrulama testi
+├── Example.1..xlsx                     # 📊 Örnek veri (Makaledeki Example 1)
+├── README.md                           # 📖 Bu dosya
+├── RMVC-git-ACIKLAMA.md                # 📚 Detaylı Türkçe açıklama
+├── ITERATIVE_ANALYSIS_COMPARISON.md    # 🔄 İteratif analiz karşılaştırma raporu (YENİ!)
+└── requirements.txt                    # 📦 Python bağımlılıkları
 ```
 
 ---
@@ -166,6 +167,7 @@ S(u) = Σ_{eᵢ ∈ E} M(u, eᵢ)
    - **📊 Grafikler:** Bar chart, histogram, box plot
    - **📈 Parametre Analizi:** Kriter detayları
    - **🔍 Detaylı Analiz:** Eleman bazlı radar chart
+   - **🔄 İteratif Analiz:** Eşik tabanlı iteratif RMVC analizi (YENİ!)
 
 4. **Sonuçları indirin:**
    - Skorları CSV olarak indirin
@@ -227,6 +229,127 @@ U = {1, 2, 3, 4, 5}
 | 5 | 3.444 | 31/9 |
 | 3 | 2.778 | 25/9 |
 | 4 | 2.667 | 8/3 |
+
+**🏆 Optimal Seçim: Eleman 1**
+
+---
+
+## 🔄 İteratif RMVC Analizi (Yeni Özellik!)
+
+### Ne İşe Yarar?
+
+İteratif analiz, üyelik matrisine **eşik değer (threshold)** uygulayarak yeni binary matrisler oluşturur ve RMVC algoritmasını tekrar çalıştırır. Bu sayede:
+
+- 📊 Zayıf ilişkilerin etkisini gözlemleyebilirsiniz
+- 🔍 Farklı eşik değerlerinde sıralama değişimlerini analiz edebilirsiniz
+- 🎯 Güçlü ve zayıf ilişkileri ayırt edebilirsiniz
+- 📈 İteratif olarak sonuçların nasıl değiştiğini görebilirsiniz
+
+### Nasıl Çalışır?
+
+1. **İlk RMVC Hesaplaması:** Orijinal binary matris ile üyelik matrisi hesaplanır
+2. **Eşik Değer Seçimi:** 0.0 ile 1.0 arası bir eşik değer belirlersiniz (örn: 0.50)
+3. **Eşikleme Modu Seçimi:**
+   - **🔴 Binary Mod:** Eşik altındaki değerler **0'a dönüşür** (zayıf ilişkiler kesilir)
+   - **🟡 Mixed Mod:** Eşik altındaki değerler **aynı kalır** (zayıf ilişkiler korunur)
+4. **Yeni İterasyon:** Eşiklenmiş matris ile yeni RMVC hesaplaması yapılır
+5. **Karşılaştırma:** Sıralama değişimleri, skor değişimleri ve istatistikler gösterilir
+
+### Eşikleme Kuralları
+
+#### Binary Mod (Eşik Altı → 0)
+```
+Değer > Eşik  →  1  (Güçlü ilişki)
+Değer ≤ Eşik  →  0  (Zayıf ilişki kesilir)
+```
+
+**Örnek (Eşik = 0.50):**
+```
+0.3333 → 0
+0.4444 → 0
+0.5556 → 1
+1.0000 → 1
+```
+
+**Kullanım Senaryoları:**
+- ✅ Sadece güçlü ilişkilere odaklanmak
+- ✅ Gürültüyü temizlemek
+- ✅ Kararlı sıralama elde etmek
+- ✅ Kesin kararlar almak
+
+#### Mixed Mod (Eşik Altı → Aynı Kalır)
+```
+Değer > Eşik  →  1  (Güçlü ilişki)
+Değer ≤ Eşik  →  Değer (Zayıf ilişki korunur)
+```
+
+**Örnek (Eşik = 0.50):**
+```
+0.3333 → 0.3333 (aynı kaldı)
+0.4444 → 0.4444 (aynı kaldı)
+0.5556 → 1
+1.0000 → 1
+```
+
+**Kullanım Senaryoları:**
+- ✅ Zayıf ilişkileri de değerlendirmek
+- ✅ Sıralama değişimlerini gözlemlemek
+- ✅ İkinci şans vermek
+- ✅ Keşifsel analiz yapmak
+
+### Karşılaştırma Tablosu
+
+| Özellik | Binary Mod | Mixed Mod |
+|---------|------------|-----------|
+| **Eşik altı değerler** | 0'a dönüşür | Aynı kalır |
+| **Bilgi kaybı** | Var (zayıf ilişkiler kesilir) | Yok (tüm bilgi korunur) |
+| **Sıralama kararlılığı** | Yüksek | Düşük |
+| **Ayırt edicilik** | Yüksek | Düşük (homojenleşme riski) |
+| **Kullanım** | Kesin kararlar | Keşifsel analiz |
+
+### Örnek Sonuçlar
+
+**Example 1 Verisi, Eşik = 0.50:**
+
+| Mod | Yükselenler | Düşenler | Aynı Kalanlar | Skor Değişimi |
+|-----|-------------|----------|---------------|---------------|
+| **Binary** | 0 | 0 | 5 (Tümü) | Küçük (+0.08 ~ +0.44) |
+| **Mixed** | 2 | 1 | 2 | Büyük (+0.44 ~ +1.33) |
+
+**Detaylı karşılaştırma için:** [ITERATIVE_ANALYSIS_COMPARISON.md](ITERATIVE_ANALYSIS_COMPARISON.md)
+
+### Kullanım Adımları
+
+1. **Dosya yükleyin** ve ilk RMVC hesaplamasını yapın
+2. **"🔄 İteratif Analiz"** sekmesine gidin
+3. **Eşik değer** seçin (slider ile 0.0 - 1.0 arası)
+4. **Eşikleme modu** seçin:
+   - 🔴 "0'a dönüştür (Binary)" veya
+   - 🟡 "Aynı kalsın (Mixed)"
+5. **"Eşikleme Uygula"** butonuna tıklayın
+6. **Sonuçları inceleyin:**
+   - Eşiklenmiş matris
+   - Yeni üyelik matrisi
+   - Sıralama değişimleri (🟢 Yükseldi, 🔴 Düştü, ⚪ Aynı)
+   - İstatistikler ve grafikler
+7. **İsterseniz tekrarlayın:** Yeni iterasyonlar oluşturup karşılaştırın
+
+### İteratif Strateji Önerileri
+
+**Yaklaşım 1: Aşamalı Temizleme**
+1. İterasyon 1: Binary (0.5) → Gürültüyü temizle
+2. İterasyon 2: Mixed (0.6) → Zayıf ilişkileri değerlendir
+3. İterasyon 3: Binary (0.7) → Final kararı ver
+
+**Yaklaşım 2: Karşılaştırmalı Analiz**
+1. İterasyon 1: Binary (0.5) → Kararlı sonuç
+2. İterasyon 2: Mixed (0.5) → Alternatif sonuç
+3. Karşılaştır ve karar ver
+
+**Yaklaşım 3: Eşik Tarama**
+1. Farklı eşik değerleri dene (0.3, 0.5, 0.7)
+2. Sıralama değişimlerini gözlemle
+3. Optimal eşik değerini belirle
 
 **🏆 Optimal Seçim: Eleman 1**
 
