@@ -779,11 +779,16 @@ def main():
                 # Üyelik matrisi istatistikleri
                 st.markdown("#### 📊 Mevcut Üyelik Matrisi İstatistikleri")
                 
-                col1, col2, col3, col4 = st.columns(4)
-                
+                # Tüm değerleri topla
                 all_values = []
                 for row in current_data['membership_matrix'].values():
                     all_values.extend([float(v) for v in row.values()])
+                
+                # 0 ve 1 dışındaki değerleri filtrele (ondalıklı değerler)
+                fractional_values = [v for v in all_values if 0 < v < 1]
+                
+                # Genel istatistikler
+                col1, col2, col3, col4 = st.columns(4)
                 
                 with col1:
                     st.metric("Min Değer", f"{min(all_values):.4f}")
@@ -794,6 +799,31 @@ def main():
                 with col4:
                     st.metric("Std Sapma", f"{np.std(all_values):.4f}")
                 
+                # 0 ve 1 dışındaki değerlerin istatistikleri
+                if fractional_values:
+                    st.markdown("##### 🔢 Ondalıklı Değerler İstatistikleri (0 ve 1 hariç)")
+                    
+                    frac_mean = np.mean(fractional_values)
+                    frac_std = np.std(fractional_values)
+                    cv = frac_std / frac_mean if frac_mean > 0 else 0  # Coefficient of Variation (CV)
+                    
+                    col1, col2, col3, col4 = st.columns(4)
+                    
+                    with col1:
+                        st.metric("Ondalıklı Değer Sayısı", len(fractional_values))
+                    with col2:
+                        st.metric("Ortalama (0-1 arası)", f"{frac_mean:.4f}", 
+                                 help="Eşik değer seçimi için referans olabilir")
+                    with col3:
+                        st.metric("Std Sapma (0-1 arası)", f"{frac_std:.4f}")
+                    with col4:
+                        st.metric("Std Sapma / Ortalama", f"{cv:.4f}",
+                                 help="Değişkenlik katsayısı (CV): Düşük değer = homojen, Yüksek değer = heterojen")
+                    
+                    st.info(f"💡 **Eşik Önerisi:** Ondalıklı değerlerin ortalaması ({frac_mean:.4f}) eşik değer seçimi için iyi bir başlangıç noktası olabilir.")
+                else:
+                    st.warning("⚠️ Üyelik matrisinde 0 ve 1 dışında değer bulunmuyor (tamamen binary matris).")
+                
                 # Değer dağılımı histogram
                 st.markdown("#### 📈 Değer Dağılımı")
                 fig_dist = px.histogram(
@@ -803,19 +833,28 @@ def main():
                     labels={'x': 'Üyelik Değeri', 'y': 'Frekans'}
                 )
                 fig_dist.add_vline(x=np.mean(all_values), line_dash="dash", line_color="red", 
-                                   annotation_text="Ortalama")
+                                   annotation_text="Genel Ortalama")
+                
+                # Ondalıklı değerlerin ortalamasını da göster
+                if fractional_values:
+                    fig_dist.add_vline(x=frac_mean, line_dash="dot", line_color="blue", 
+                                       annotation_text="Ondalıklı Ort.")
+                
                 st.plotly_chart(fig_dist, use_container_width=True)
                 
                 # Eşik değer seçimi
                 st.markdown("#### 🎯 Eşik Değer Seçimi")
                 
+                # Varsayılan eşik değeri: ondalıklı değerlerin ortalaması veya 0.5
+                default_threshold = round(frac_mean, 2) if fractional_values else 0.5
+                
                 threshold = st.slider(
                     "Eşik değeri belirleyin:",
                     min_value=0.0,
                     max_value=1.0,
-                    value=0.5,
+                    value=default_threshold,
                     step=0.01,
-                    help="Eşik değerinin üzerindeki değerler 1'e dönüşür"
+                    help=f"Eşik değerinin üzerindeki değerler 1'e dönüşür. Önerilen: {default_threshold:.2f} (ondalıklı değerlerin ortalaması)"
                 )
                 
                 # Eşik altındaki değerler için seçenek
