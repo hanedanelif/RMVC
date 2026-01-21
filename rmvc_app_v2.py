@@ -354,7 +354,7 @@ def get_element_detail(u, membership_matrix, E_info):
     return pd.DataFrame(details)
 
 
-def threshold_matrix(membership_matrix, U, threshold_value, keep_below_threshold=False):
+def threshold_matrix(membership_matrix, U, threshold_value, keep_below_threshold=False, operator=">"):
     """
     Üyelik matrisini eşik değerine göre dönüştürür.
     
@@ -364,6 +364,7 @@ def threshold_matrix(membership_matrix, U, threshold_value, keep_below_threshold
         threshold_value: Eşik değeri
         keep_below_threshold: True ise eşik altındaki değerler aynı kalır,
                              False ise 0'a dönüşür
+        operator: Karşılaştırma operatörü (">" veya ">=")
     
     Returns:
         Dönüştürülmüş matris (binary veya mixed)
@@ -373,7 +374,15 @@ def threshold_matrix(membership_matrix, U, threshold_value, keep_below_threshold
         new_matrix[e_i] = {}
         for u in U:
             val = float(membership_matrix[e_i].get(u, Fraction(0, 1)))
-            if val > threshold_value:
+            
+            # Eşik karşılaştırması (kayan nokta hassasiyeti için epsilon kullan)
+            epsilon = 1e-4  # Çok büyük epsilon (0.6666 vs 0.6667 farkı için)
+            if operator == ">=":
+                above_threshold = val >= (threshold_value - epsilon)
+            else:  # ">"
+                above_threshold = val > (threshold_value + epsilon)
+            
+            if above_threshold:
                 new_matrix[e_i][u] = 1
             else:
                 if keep_below_threshold:
@@ -848,26 +857,65 @@ def main():
                 with col4:
                     st.metric("Std Sapma", f"{np.std(all_values):.4f}")
                 
+                # Matris değer dağılımı analizi
+                st.markdown("##### 📊 Matris Değer Dağılımı")
+                
+                # 0, 1 ve ondalıklı değerlerin sayısını hesapla
+                count_zeros = sum(1 for v in all_values if v == 0.0)
+                count_ones = sum(1 for v in all_values if v == 1.0)
+                count_fractional = len(fractional_values)
+                
+                col1, col2, col3, col4 = st.columns(4)
+                with col1:
+                    st.metric("Toplam Değer", len(all_values))
+                with col2:
+                    st.metric("0 Sayısı", count_zeros, help="Tam olmayan üyelikler")
+                with col3:
+                    st.metric("1 Sayısı", count_ones, help="Tam üyelikler")
+                with col4:
+                    st.metric("Ondalıklı Sayısı", count_fractional, help="0 ile 1 arası değerler")
+                
+                # Benzersiz değerlerin dağılımı
+                from collections import Counter
+                value_counts = Counter([round(v, 4) for v in all_values])
+                
+                st.markdown("**Değer Frekans Tablosu:**")
+                freq_data = []
+                for value, count in sorted(value_counts.items()):
+                    freq_data.append({
+                        "Değer": f"{value:.4f}",
+                        "Adet": count,
+                        "Yüzde": f"{(count/len(all_values)*100):.2f}%"
+                    })
+                freq_df = pd.DataFrame(freq_data)
+                st.dataframe(freq_df, use_container_width=True, hide_index=True)
+                
                 # 0 ve 1 dışındaki değerlerin istatistikleri
                 if fractional_values:
                     st.markdown("##### 🔢 Ondalıklı Değerler İstatistikleri (0 ve 1 hariç)")
                     
                     frac_mean = np.mean(fractional_values)
                     frac_std = np.std(fractional_values)
-                    cv = frac_std / frac_mean if frac_mean > 0 else 0  # Coefficient of Variation (CV)
+                    frac_min = min(fractional_values)
+                    frac_max = max(fractional_values)
+                    cv = frac_std / frac_mean if frac_mean > 0 else 0
                     
-                    col1, col2, col3, col4 = st.columns(4)
+                    col1, col2, col3, col4, col5, col6 = st.columns(6)
                     
                     with col1:
-                        st.metric("Ondalıklı Değer Sayısı", len(fractional_values))
+                        st.metric("Min", f"{frac_min:.4f}")
                     with col2:
-                        st.metric("Ortalama (0-1 arası)", f"{frac_mean:.4f}", 
-                                 help="Eşik değer seçimi için referans olabilir")
+                        st.metric("Max", f"{frac_max:.4f}")
                     with col3:
-                        st.metric("Std Sapma (0-1 arası)", f"{frac_std:.4f}")
+                        st.metric("Ortalama", f"{frac_mean:.4f}", 
+                                 help="Eşik değer seçimi için referans")
                     with col4:
-                        st.metric("Std Sapma / Ortalama", f"{cv:.4f}",
-                                 help="Değişkenlik katsayısı (CV): Düşük değer = homojen, Yüksek değer = heterojen")
+                        st.metric("Std Sapma", f"{frac_std:.4f}")
+                    with col5:
+                        st.metric("CV (Std/Ort)", f"{cv:.4f}",
+                                 help="Değişkenlik katsayısı")
+                    with col6:
+                        st.metric("Adet", len(fractional_values))
                     
                     st.info(f"💡 **Eşik Önerisi:** Ondalıklı değerlerin ortalaması ({frac_mean:.4f}) eşik değer seçimi için iyi bir başlangıç noktası olabilir.")
                 else:
@@ -894,17 +942,54 @@ def main():
                 # Eşik değer seçimi
                 st.markdown("#### 🎯 Eşik Değer Seçimi")
                 
-                # Varsayılan eşik değeri: ondalıklı değerlerin ortalaması veya 0.5
-                default_threshold = round(frac_mean, 2) if fractional_values else 0.5
+                # Varsayılan eşik değeri: ondalıklı değerlerin ortalaması (4 ondalık, yuvarlama yok!)
+                default_threshold = round(frac_mean, 4) if fractional_values else 0.5
                 
-                threshold = st.slider(
-                    "Eşik değeri belirleyin:",
-                    min_value=0.0,
-                    max_value=1.0,
-                    value=default_threshold,
-                    step=0.01,
-                    help=f"Eşik değerinin üzerindeki değerler 1'e dönüşür. Önerilen: {default_threshold:.2f} (ondalıklı değerlerin ortalaması)"
-                )
+                col1, col2 = st.columns([3, 1])
+                
+                with col1:
+                    threshold = st.slider(
+                        "Eşik değeri belirleyin:",
+                        min_value=0.0,
+                        max_value=1.0,
+                        value=default_threshold,
+                        step=0.0001,
+                        format="%.4f",
+                        help=f"Önerilen: {default_threshold:.4f} (ondalıklı değerlerin ortalaması - 4 ondalık hassasiyet)"
+                    )
+                
+                with col2:
+                    threshold_operator = st.radio(
+                        "Eşik karşılaştırması:",
+                        options=[">", ">="],
+                        index=0,
+                        help="> : Eşikten büyük olanlar 1 olur\n>= : Eşike eşit ve büyük olanlar 1 olur"
+                    )
+                
+                # Eşik bilgisi ve etkilenecek değerler
+                if fractional_values:
+                    if threshold_operator == ">":
+                        affected_values = [v for v in fractional_values if v > threshold]
+                        rule_text = f"Değer > {threshold:.4f}"
+                    else:
+                        affected_values = [v for v in fractional_values if v >= threshold]
+                        rule_text = f"Değer >= {threshold:.4f}"
+                    
+                    st.info(f"📌 **Eşik Kuralı:** {rule_text} → 1'e dönüşür")
+                    
+                    col1, col2, col3 = st.columns(3)
+                    with col1:
+                        st.metric("Etkilenecek Değer Sayısı", len(affected_values),
+                                 help="Bu eşik ile 1'e dönüşecek ondalıklı değer sayısı")
+                    with col2:
+                        unchanged = count_fractional - len(affected_values)
+                        st.metric("Değişmeyecek/0 Olacak", unchanged,
+                                 help="Eşik altında kalacak ondalıklı değer sayısı")
+                    with col3:
+                        if count_fractional > 0:
+                            pct = (len(affected_values) / count_fractional) * 100
+                            st.metric("Dönüşüm Oranı", f"{pct:.1f}%",
+                                     help="Ondalıklı değerlerin yüzde kaçı 1'e dönüşecek")
                 
                 # Eşik altındaki değerler için seçenek
                 st.markdown("**Eşik Altındaki Değerler:**")
@@ -931,8 +1016,14 @@ def main():
                 # Eşikleme uygula butonu
                 if st.button("🔄 Eşikleme Uygula ve Yeni İterasyon Başlat", type="primary"):
                     with st.spinner("Yeni iterasyon hesaplanıyor..."):
-                        # Eşikleme uygula (yeni parametre ile)
-                        thresholded_matrix = threshold_matrix(current_data['membership_matrix'], U, threshold, keep_below)
+                        # Eşikleme uygula (operatör parametresi ile)
+                        thresholded_matrix = threshold_matrix(
+                            current_data['membership_matrix'], 
+                            U, 
+                            threshold, 
+                            keep_below,
+                            threshold_operator
+                        )
                         
                         # Eşiklenmiş matrisi soft set formatına dönüştür
                         new_E_named = {}
@@ -953,12 +1044,77 @@ def main():
                             'membership_matrix': new_membership_matrix,
                             'scores': new_scores,
                             'threshold': threshold,
+                            'threshold_operator': threshold_operator,
                             'keep_below': keep_below,
                             'thresholded_matrix': thresholded_matrix
                         })
                         
                         st.success(f"✅ İterasyon {current_iter + 1} oluşturuldu!")
-                        st.rerun()
+                        # st.rerun() yerine scroll yapabilmek için rerun'u kaldırıyoruz
+                
+                # Tüm iterasyonları göster
+                st.markdown("---")
+                st.markdown("### 📚 Tüm İterasyonlar")
+                st.info("Aşağıda tüm iterasyonların detayları gösterilmektedir. Scroll yaparak tüm iterasyonları inceleyebilirsiniz.")
+                
+                for idx, iter_data in enumerate(st.session_state.iterations):
+                    with st.expander(f"📋 İterasyon {idx} - Detaylar", expanded=(idx == current_iter)):
+                        st.markdown(f"#### İterasyon {idx}")
+                        
+                        # Eşik bilgisi (varsa)
+                        if iter_data.get('threshold') is not None:
+                            threshold_val = iter_data['threshold']
+                            threshold_op = iter_data.get('threshold_operator', '>')
+                            keep_below_val = iter_data.get('keep_below', False)
+                            mode_text = "Mixed (Eşik altı aynı kaldı)" if keep_below_val else "Binary (Eşik altı 0'a dönüştü)"
+                            
+                            st.info(f"🎯 Eşik: {threshold_val:.4f} | Operatör: {threshold_op} | Mod: {mode_text}")
+                        else:
+                            st.info("📍 Başlangıç iterasyonu (orijinal üyelik matrisi)")
+                        
+                        # Üyelik matrisi istatistikleri
+                        iter_values = []
+                        for row in iter_data['membership_matrix'].values():
+                            iter_values.extend([float(v) for v in row.values()])
+                        
+                        iter_fractional = [v for v in iter_values if 0 < v < 1]
+                        iter_zeros = sum(1 for v in iter_values if v == 0.0)
+                        iter_ones = sum(1 for v in iter_values if v == 1.0)
+                        
+                        col1, col2, col3, col4, col5 = st.columns(5)
+                        with col1:
+                            st.metric("Min", f"{min(iter_values):.4f}")
+                        with col2:
+                            st.metric("Max", f"{max(iter_values):.4f}")
+                        with col3:
+                            st.metric("0 Sayısı", iter_zeros)
+                        with col4:
+                            st.metric("1 Sayısı", iter_ones)
+                        with col5:
+                            st.metric("Ondalıklı", len(iter_fractional))
+                        
+                        # Eşiklenmiş matris (varsa)
+                        if iter_data.get('thresholded_matrix') is not None:
+                            st.markdown("**Eşiklenmiş Matris (Binary/Mixed):**")
+                            thresholded_df = binary_to_dataframe(iter_data['thresholded_matrix'], U, E_info)
+                            st.dataframe(thresholded_df, use_container_width=True)
+                        
+                        # Üyelik matrisi
+                        st.markdown("**Yeni Üyelik Matrisi (RMVC hesaplanmış):**")
+                        iter_matrix_df = matrix_to_dataframe(iter_data['membership_matrix'], U, E_info)
+                        st.dataframe(iter_matrix_df, use_container_width=True)
+                        
+                        # Histogram
+                        st.markdown("**Değer Dağılımı:**")
+                        fig_iter = px.histogram(
+                            x=iter_values,
+                            nbins=20,
+                            title=f'İterasyon {idx} - Değer Dağılımı',
+                            labels={'x': 'Üyelik Değeri', 'y': 'Frekans'}
+                        )
+                        if iter_fractional:
+                            fig_iter.add_vline(x=np.mean(iter_fractional), line_dash="dot", line_color="blue")
+                        st.plotly_chart(fig_iter, use_container_width=True)
                 
                 # İterasyon karşılaştırması
                 if current_iter > 0:
