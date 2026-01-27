@@ -1,0 +1,612 @@
+[
+  {
+    "dataset_name": "MovieLens 10x5",
+    "filepath": "C:\\Users\\user\\Downloads\\RMVC\\datasets\\movielens_10x5_rmvc.xlsx",
+    "num_users": 10,
+    "num_movies": 5,
+    "initial_density": 0.9,
+    "convergence": {
+      "converged": true,
+      "type": "binary_mixed",
+      "iterations": 2,
+      "iteration_history": [
+        {
+          "iteration": 0,
+          "statistics": {
+            "total_values": 50,
+            "num_zeros": 5,
+            "num_ones": 18,
+            "num_fractional": 15,
+            "sparsity": 0.1,
+            "density": 0.36,
+            "mean": 0.8471944444444445,
+            "min": 0.0,
+            "max": 1.03125
+          },
+          "top_5_scores": [
+            [
+              "276",
+              5.059027777777778
+            ],
+            [
+              "59",
+              5.059027777777778
+            ],
+            [
+              "13",
+              5.059027777777778
+            ],
+            [
+              "474",
+              5.059027777777778
+            ],
+            [
+              "450",
+              5.059027777777778
+            ]
+          ]
+        },
+        {
+          "iteration": 1,
+          "statistics": {
+            "total_values": 50,
+            "num_zeros": 16,
+            "num_ones": 0,
+            "num_fractional": 16,
+            "sparsity": 0.32,
+            "density": 0.0,
+            "mean": 0.6275000000000002,
+            "min": 0.0,
+            "max": 1.0416666666666667
+          },
+          "top_5_scores": [
+            [
+              "276",
+              4.9375
+            ],
+            [
+              "59",
+              4.9375
+            ],
+            [
+              "13",
+              4.9375
+            ],
+            [
+              "474",
+              4.9375
+            ],
+            [
+              "450",
+              4.9375
+            ]
+          ]
+        },
+        {
+          "iteration": 2,
+          "statistics": {
+            "total_values": 50,
+            "num_zeros": 20,
+            "num_ones": 0,
+            "num_fractional": 0,
+            "sparsity": 0.4,
+            "density": 0.0,
+            "mean": 0.6250000000000001,
+            "min": 0.0,
+            "max": 1.0416666666666667
+          },
+          "top_5_scores": [
+            [
+              "276",
+              5.208333333333333
+            ],
+            [
+              "59",
+              5.208333333333333
+            ],
+            [
+              "13",
+              5.208333333333333
+            ],
+            [
+              "474",
+              5.208333333333333
+            ],
+            [
+              "450",
+              5.208333333333333
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "dataset_name": "MovieLens 20x10",
+    "filepath": "C:\\Users\\user\\Downloads\\RMVC\\datasets\\movielens_20x10_rmvc.xlsx",
+    "num_users": 20,
+    "num_movies": 10,
+    "initial_density": 0.83,
+    "convergence": {
+      "converged": true,
+      "type": "binary_mixed",
+      "iterations": 2,
+      "iteration_history": [
+        {
+          "iteration": 0,
+          "statistics": {
+            "total_values": 200,
+            "num_zeros": 34,
+            "num_ones": 0,
+            "num_fractional": 166,
+            "sparsity": 0.17,
+            "density": 0.0,
+            "mean": 0.63471104966203,
+            "min": 0.0,
+            "max": 0.8962962962962963
+          },
+          "top_5_scores": [
+            [
+              "450",
+              8.778217697335345
+            ],
+            [
+              "94",
+              8.778217697335345
+            ],
+            [
+              "303",
+              8.778217697335345
+            ],
+            [
+              "416",
+              8.778217697335345
+            ],
+            [
+              "758",
+              7.336598514049494
+            ]
+          ]
+        },
+        {
+          "iteration": 1,
+          "statistics": {
+            "total_values": 200,
+            "num_zeros": 54,
+            "num_ones": 0,
+            "num_fractional": 146,
+            "sparsity": 0.27,
+            "density": 0.0,
+            "mean": 0.5554832321817615,
+            "min": 0.0,
+            "max": 0.9111111111111111
+          },
+          "top_5_scores": [
+            [
+              "450",
+              8.732135076252723
+            ],
+            [
+              "94",
+              8.732135076252723
+            ],
+            [
+              "303",
+              8.732135076252723
+            ],
+            [
+              "416",
+              8.732135076252723
+            ],
+            [
+              "758",
+              7.3107026143790845
+            ]
+          ]
+        },
+        {
+          "iteration": 2,
+          "statistics": {
+            "total_values": 200,
+            "num_zeros": 67,
+            "num_ones": 0,
+            "num_fractional": 133,
+            "sparsity": 0.335,
+            "density": 0.0,
+            "mean": 0.5526047656047656,
+            "min": 0.0,
+            "max": 0.9145299145299145
+          },
+          "top_5_scores": [
+            [
+              "450",
+              9.114219114219114
+            ],
+            [
+              "94",
+              9.114219114219114
+            ],
+            [
+              "303",
+              9.114219114219114
+            ],
+            [
+              "416",
+              9.114219114219114
+            ],
+            [
+              "758",
+              7.609324009324009
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "dataset_name": "MovieLens 30x15",
+    "filepath": "C:\\Users\\user\\Downloads\\RMVC\\datasets\\movielens_30x15_rmvc.xlsx",
+    "num_users": 30,
+    "num_movies": 15,
+    "initial_density": 0.78,
+    "convergence": {
+      "converged": true,
+      "type": "binary_mixed",
+      "iterations": 2,
+      "iteration_history": [
+        {
+          "iteration": 0,
+          "statistics": {
+            "total_values": 450,
+            "num_zeros": 99,
+            "num_ones": 0,
+            "num_fractional": 351,
+            "sparsity": 0.22,
+            "density": 0.0,
+            "mean": 0.5404951254328066,
+            "min": 0.0,
+            "max": 0.8616071428571429
+          },
+          "top_5_scores": [
+            [
+              "450",
+              12.42970470034911
+            ],
+            [
+              "94",
+              12.42970470034911
+            ],
+            [
+              "416",
+              12.42970470034911
+            ],
+            [
+              "864",
+              11.050752599999495
+            ],
+            [
+              "303",
+              11.050752599999495
+            ]
+          ]
+        },
+        {
+          "iteration": 1,
+          "statistics": {
+            "total_values": 450,
+            "num_zeros": 127,
+            "num_ones": 0,
+            "num_fractional": 323,
+            "sparsity": 0.2822222222222222,
+            "density": 0.0,
+            "mean": 0.5255045338142582,
+            "min": 0.0,
+            "max": 0.8646616541353384
+          },
+          "top_5_scores": [
+            [
+              "450",
+              12.7394307233623
+            ],
+            [
+              "94",
+              12.7394307233623
+            ],
+            [
+              "416",
+              12.7394307233623
+            ],
+            [
+              "276",
+              11.357656607217306
+            ],
+            [
+              "864",
+              11.343604199693031
+            ]
+          ]
+        },
+        {
+          "iteration": 2,
+          "statistics": {
+            "total_values": 450,
+            "num_zeros": 128,
+            "num_ones": 0,
+            "num_fractional": 322,
+            "sparsity": 0.28444444444444444,
+            "density": 0.0,
+            "mean": 0.5268510946608191,
+            "min": 0.0,
+            "max": 0.8761904761904762
+          },
+          "top_5_scores": [
+            [
+              "450",
+              12.78972834240992
+            ],
+            [
+              "94",
+              12.78972834240992
+            ],
+            [
+              "416",
+              12.78972834240992
+            ],
+            [
+              "864",
+              11.391223247312078
+            ],
+            [
+              "303",
+              11.391223247312078
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "dataset_name": "MovieLens 50x25",
+    "filepath": "C:\\Users\\user\\Downloads\\RMVC\\datasets\\movielens_50x25_rmvc.xlsx",
+    "num_users": 50,
+    "num_movies": 25,
+    "initial_density": 0.6896,
+    "convergence": {
+      "converged": true,
+      "type": "binary_mixed",
+      "iterations": 2,
+      "iteration_history": [
+        {
+          "iteration": 0,
+          "statistics": {
+            "total_values": 1250,
+            "num_zeros": 388,
+            "num_ones": 0,
+            "num_fractional": 862,
+            "sparsity": 0.3104,
+            "density": 0.0,
+            "mean": 0.38920193451228824,
+            "min": 0.0,
+            "max": 0.7559523809523809
+          },
+          "top_5_scores": [
+            [
+              "178",
+              17.120994897171094
+            ],
+            [
+              "276",
+              17.120994897171094
+            ],
+            [
+              "416",
+              16.935695674646468
+            ],
+            [
+              "450",
+              15.662501294351427
+            ],
+            [
+              "864",
+              14.936577839160122
+            ]
+          ]
+        },
+        {
+          "iteration": 1,
+          "statistics": {
+            "total_values": 1250,
+            "num_zeros": 457,
+            "num_ones": 0,
+            "num_fractional": 793,
+            "sparsity": 0.3656,
+            "density": 0.0,
+            "mean": 0.3790193194855734,
+            "min": 0.0,
+            "max": 0.7708333333333334
+          },
+          "top_5_scores": [
+            [
+              "178",
+              17.623746139058316
+            ],
+            [
+              "276",
+              17.623746139058316
+            ],
+            [
+              "416",
+              17.366140250957073
+            ],
+            [
+              "450",
+              16.04887955533273
+            ],
+            [
+              "864",
+              15.369197581542783
+            ]
+          ]
+        },
+        {
+          "iteration": 2,
+          "statistics": {
+            "total_values": 1250,
+            "num_zeros": 471,
+            "num_ones": 0,
+            "num_fractional": 779,
+            "sparsity": 0.3768,
+            "density": 0.0,
+            "mean": 0.3805928873111446,
+            "min": 0.0,
+            "max": 0.7708333333333334
+          },
+          "top_5_scores": [
+            [
+              "178",
+              17.796290498533356
+            ],
+            [
+              "276",
+              17.796290498533356
+            ],
+            [
+              "416",
+              17.60054935537809
+            ],
+            [
+              "450",
+              16.271913654965775
+            ],
+            [
+              "864",
+              15.53977901632225
+            ]
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "dataset_name": "MovieLens 100x50",
+    "filepath": "C:\\Users\\user\\Downloads\\RMVC\\datasets\\movielens_100x50_rmvc.xlsx",
+    "num_users": 100,
+    "num_movies": 50,
+    "initial_density": 0.6034,
+    "convergence": {
+      "converged": true,
+      "type": "binary_mixed",
+      "iterations": 2,
+      "iteration_history": [
+        {
+          "iteration": 0,
+          "statistics": {
+            "total_values": 5000,
+            "num_zeros": 1983,
+            "num_ones": 0,
+            "num_fractional": 3017,
+            "sparsity": 0.3966,
+            "density": 0.0,
+            "mean": 0.26217100571417384,
+            "min": 0.0,
+            "max": 0.6127195064072141
+          },
+          "top_5_scores": [
+            [
+              "276",
+              26.135358078596276
+            ],
+            [
+              "864",
+              25.66900327969455
+            ],
+            [
+              "592",
+              25.262139855061168
+            ],
+            [
+              "416",
+              24.190793003715953
+            ],
+            [
+              "457",
+              24.052967122509347
+            ]
+          ]
+        },
+        {
+          "iteration": 1,
+          "statistics": {
+            "total_values": 5000,
+            "num_zeros": 2088,
+            "num_ones": 0,
+            "num_fractional": 2912,
+            "sparsity": 0.4176,
+            "density": 0.0,
+            "mean": 0.2613651356822127,
+            "min": 0.0,
+            "max": 0.6195918367346939
+          },
+          "top_5_scores": [
+            [
+              "276",
+              26.569863383943225
+            ],
+            [
+              "864",
+              26.09159751119152
+            ],
+            [
+              "592",
+              25.666230500354175
+            ],
+            [
+              "416",
+              24.587024394732158
+            ],
+            [
+              "457",
+              24.453536370539382
+            ]
+          ]
+        },
+        {
+          "iteration": 2,
+          "statistics": {
+            "total_values": 5000,
+            "num_zeros": 2098,
+            "num_ones": 0,
+            "num_fractional": 2902,
+            "sparsity": 0.4196,
+            "density": 0.0,
+            "mean": 0.2617065440293476,
+            "min": 0.0,
+            "max": 0.6195918367346939
+          },
+          "top_5_scores": [
+            [
+              "276",
+              26.630897964465127
+            ],
+            [
+              "864",
+              26.147961263493393
+            ],
+            [
+              "592",
+              25.739777535021222
+            ],
+            [
+              "416",
+              24.657893458902237
+            ],
+            [
+              "457",
+              24.50036782386222
+            ]
+          ]
+        }
+      ]
+    }
+  }
+]
