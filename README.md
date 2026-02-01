@@ -4,11 +4,11 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-1.28+-red.svg)](https://streamlit.io/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-> **⚠️ ÖNEMLİ GÜNCELLEME (1 Şubat 2026):**  
-> **V3 Ana Versiyondur!** Delta fonksiyonunda kritik düzeltme yapıldı (kendi kümesi hariç hesaplama).  
-> - ✅ **Kullanın:** `rmvc_app_v3.py` (Port 8516) - Makaledeki formüle tam uyumlu  
-> - ⚠️ **Yedek:** `rmvc_app_v2.py` (Port 8515) - Eski versiyon (referans için saklanıyor)  
-> - 📄 Detaylar: [DELTA_FUNCTION_FIX_REPORT.md](DELTA_FUNCTION_FIX_REPORT.md)
+> **✅ FİNAL KARAR (1 Şubat 2026):**  
+> **V2 Ana ve Onaylanmış Versiyondur!** Hocanın orijinal `csvtormvc.py` koduyla birebir uyumludur.  
+> - ✅ **Kullanın:** `rmvc_app_v2.py` (Port 8515) - Hocanın onaylı metodu  
+> - 🧪 **Deneysel:** `rmvc_app_v3.py` (Port 8516) - Alternatif yaklaşım (kendi kümesi hariç)  
+> - 📄 Detaylı Analiz: [DELTA_FUNCTION_FIX_REPORT.md](DELTA_FUNCTION_FIX_REPORT.md)
 
 **RMVC (Relational Membership Value Calculation)**, belirsizlik altında karar verme problemleri için geliştirilmiş, **Soft Set Teorisi (Esnek Küme Teorisi)** tabanlı yeni bir algoritmik çerçevedir. Bu proje, akademik makalede tanımlanan RMVC yöntemini ve ilişkisel üyelik fonksiyonunu kullanıcı dostu bir web arayüzü ile sunmaktadır.
 
@@ -37,21 +37,21 @@ pip install streamlit pandas plotly openpyxl
 
 ### 2. Uygulamayı Çalıştırın
 
-**V3 (Önerilen - Düzeltilmiş Versiyon):**
+**V2 (Onaylanmış - Hocanın Metodu):**
 ```bash
 cd RMVC
-streamlit run rmvc_app_v3.py --server.port 8516
+streamlit run rmvc_app_v2.py --server.port 8515
 ```
 
-**V2 (Yedek - Eski Versiyon):**
+**V3 (Deneysel - Alternatif Yaklaşım):**
 ```bash
-streamlit run rmvc_app_v2.py --server.port 8515
+streamlit run rmvc_app_v3.py --server.port 8516
 ```
 
 ### 3. Tarayıcıda Açın
 
-**V3:** `http://localhost:8516`  
-**V2:** `http://localhost:8515`
+**V2 (Önerilen):** `http://localhost:8515`  
+**V3 (Deneysel):** `http://localhost:8516`
 
 ---
 
