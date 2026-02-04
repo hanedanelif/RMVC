@@ -1,0 +1,20 @@
+================================================================================
+ADIM 1: TEKSTİL VERİ İNCELEME RAPORU
+================================================================================
+
+
+VERİ SETİ ÖZETİ:
+- Toplam Kayıt: 1,703
+- Benzersiz Firma: 93
+- Benzersiz Ürün: 1336
+- Veri Formatı: Long (FirmaID, UrunTID, Miktar, AlimSayisi)
+- Yoğunluk: 1.37%
+
+VERİ KALİTESİ:
+- Eksik Değer: 0
+- Tüm sütunlar dolu: True
+
+SONRAKİ ADIM:
+- ADIM 2: Pivot tablo ile wide format'a dönüştür
+- Binary matris oluştur (Miktar > 0 veya AlimSayisi > 0)
+- Yoğun alt-matrisler seç (density analysis)

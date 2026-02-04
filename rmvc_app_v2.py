@@ -376,7 +376,7 @@ def threshold_matrix(membership_matrix, U, threshold_value, keep_below_threshold
             val = float(membership_matrix[e_i].get(u, Fraction(0, 1)))
             
             # Eşik karşılaştırması (kayan nokta hassasiyeti için epsilon kullan)
-            epsilon = 1e-4  # Çok büyük epsilon (0.6666 vs 0.6667 farkı için)
+            epsilon = 1e-9  # ✅ CORRECTED: 1e-4 was too large, 1e-9 is optimal
             if operator == ">=":
                 above_threshold = val >= (threshold_value - epsilon)
             else:  # ">"

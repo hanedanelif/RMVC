@@ -222,19 +222,14 @@ def csv_to_soft_set(df, rows_are_params=False):
 
 def delta_function(e_i, E_named, U):
     """
-    Delta fonksiyonu - Makaledeki formüle göre DÜZELTİLMİŞ versiyon V3.
+    Delta fonksiyonu - V2 VERSİYONU (GitHub'daki DOĞRU versiyon).
     
-    Formül (Makaleden):
-    δ(u, e_i) = Σ_{v ∈ Φ(e_i)} |{e_j ∈ E \\ {e_i} : {u, v} ⊆ Φ(e_j)}|
+    ÖNEMLI: Bu versiyon KENDİ KÜMESİNİ DAHİL EDER!
     
-    Açıklama:
-    - u: e_i'ye ait OLMAYAN bir eleman
-    - v: e_i'ye ait olan her eleman
-    - {u, v} ikilisinin KENDİ KÜMESİ (e_i) HARİÇ diğer kümelerde kaç kez birlikte bulunduğunu say
+    Formül:
+    δ(u, e_i) = Σ_{v ∈ Φ(e_i)} |{e_j ∈ E : {u, v} ⊆ Φ(e_j)}|
     
-    ÖNEMLİ DÜZELTMELER (V3):
-    1. break KULLANILMAMALI - her küme için ayrı ayrı sayılmalı
-    2. KENDİ KÜMESİ (e_i) HARİÇ TUTULMALI - sadece diğer parametrelerdeki eşleşmeler sayılır
+    NOT: e_i kümesi de dahildir! V3 gibi "e_j != e_i" kontrolü YOK!
     """
     phi_e_i = E_named[e_i]  # Φ(e_i): e_i'ye ait elemanlar
     not_in_phi = U - phi_e_i  # U \ Φ(e_i): e_i'ye ait olmayan elemanlar
@@ -246,15 +241,14 @@ def delta_function(e_i, E_named, U):
         
         # Her v ∈ Φ(e_i) için
         for v in phi_e_i:
+            if v == u:
+                continue
+                
             # {u, v} ikilisinin bulunduğu küme sayısını say
-            pair = {u, v}
-            
-            # KENDİ KÜMESİ HARİÇ tüm kümeleri kontrol et
+            # ✅ TÜM KÜMELER DAHİL (kendi kümesi de!)
             for e_j, phi_e_j in E_named.items():
-                if e_j != e_i:  # KENDİ KÜMESİ HARİÇ!
-                    if pair.issubset(phi_e_j):
-                        delta_sum += 1
-                        # break YOK - tüm kümelerde sayılmalı
+                if u in phi_e_j and v in phi_e_j:
+                    delta_sum += 1
         
         results[u] = delta_sum
     
@@ -370,42 +364,66 @@ def get_element_detail(u, membership_matrix, E_info):
 
 def threshold_matrix(membership_matrix, U, threshold_value, keep_below_threshold=False, operator=">"):
     """
-    Üyelik matrisini eşik değerine göre dönüştürür.
+    ✅ EPSILON TOLERANCE ADDED (1e-9)
+    Prevents floating point precision errors in threshold comparisons.
+    
+    Binarizes the membership matrix using a threshold.
+    If keep_below_threshold is True, keeps values BELOW threshold (for reverse engineering).
     
     Args:
-        membership_matrix: Üyelik matrisi
-        U: Evrensel küme
-        threshold_value: Eşik değeri
-        keep_below_threshold: True ise eşik altındaki değerler aynı kalır,
-                             False ise 0'a dönüşür
-        operator: Karşılaştırma operatörü (">" veya ">=")
+        membership_matrix: Dictionary of {e_i: {u: value}} where value is Fraction or float
+        U: Set of universe elements
+        threshold_value: Threshold for binarization (float)
+        keep_below_threshold: If True, keeps values < threshold; if False, keeps values >= threshold
+        operator: Comparison operator (">" or ">=")
     
     Returns:
-        Dönüştürülmüş matris (binary veya mixed)
+        binary_matrix: Dictionary of {e_i: {u: 0 or 1}}
     """
-    new_matrix = {}
+    epsilon = 1e-9  # ✅ EPSILON FOR FLOATING POINT PRECISION
+    
+    binary_matrix = {}
     for e_i in membership_matrix.keys():
-        new_matrix[e_i] = {}
+        binary_matrix[e_i] = {}
         for u in U:
             val = float(membership_matrix[e_i].get(u, Fraction(0, 1)))
             
-            # Eşik karşılaştırması (kayan nokta hassasiyeti için epsilon kullan)
-            epsilon = 1e-4  # Çok büyük epsilon (0.6666 vs 0.6667 farkı için)
-            if operator == ">=":
-                above_threshold = val >= (threshold_value - epsilon)
-            else:  # ">"
-                above_threshold = val > (threshold_value + epsilon)
-            
-            if above_threshold:
-                new_matrix[e_i][u] = 1
+            if keep_below_threshold:
+                # Reverse: keep if BELOW threshold
+                if operator == ">":
+                    binary_matrix[e_i][u] = 1 if val < threshold_value else 0
+                else:  # ">="
+                    binary_matrix[e_i][u] = 1 if val < (threshold_value + epsilon) else 0
             else:
-                if keep_below_threshold:
-                    # Eşik altındaki değerler aynı kalır
-                    new_matrix[e_i][u] = val
-                else:
-                    # Eşik altındaki değerler 0 olur
-                    new_matrix[e_i][u] = 0
-    return new_matrix
+                # Normal: keep if >= threshold
+                if operator == ">":
+                    binary_matrix[e_i][u] = 1 if val > threshold_value else 0
+                else:  # ">="
+                    # ✅ EPSILON-ADJUSTED COMPARISON
+                    binary_matrix[e_i][u] = 1 if val >= (threshold_value - epsilon) else 0
+    return binary_matrix
+
+
+def calculate_dynamic_threshold(membership_matrix):
+    """
+    Dinamik threshold hesapla - Fractional değerlerin ortalaması.
+    
+    Args:
+        membership_matrix: Dictionary of {e_i: {u: Fraction}}
+    
+    Returns:
+        float: Fractional değerlerin ortalaması (0 < val < 1)
+    """
+    fractional_values = []
+    for e_i, row in membership_matrix.items():
+        for u, val in row.items():
+            val_float = float(val)
+            if 0 < val_float < 1:
+                fractional_values.append(val_float)
+    
+    if fractional_values:
+        return np.mean(fractional_values)
+    return 0.5  # Varsayılan
 
 
 def binary_to_dataframe(binary_matrix, U, E_info):
@@ -517,11 +535,11 @@ def main():
     # Ana içerik
     if uploaded_file is not None:
         try:
-            # Dosyayı oku
+            # Dosyayı oku - HEADER YOK, INDEX COLUMN YOK
             if uploaded_file.name.endswith('.csv'):
-                df = pd.read_csv(uploaded_file, index_col=0)
+                df = pd.read_csv(uploaded_file, header=None)  # ✅ Header yok, index yok
             else:
-                df = pd.read_excel(uploaded_file, index_col=0)
+                df = pd.read_excel(uploaded_file, header=None)  # ✅ Header yok, index yok
             
             # Format bilgisi
             if rows_are_params:
@@ -957,8 +975,15 @@ def main():
                 # Eşik değer seçimi
                 st.markdown("#### 🎯 Eşik Değer Seçimi")
                 
-                # Varsayılan eşik değeri: ondalıklı değerlerin ortalaması (4 ondalık, yuvarlama yok!)
-                default_threshold = round(frac_mean, 4) if fractional_values else 0.5
+                # Dinamik threshold hesapla
+                if fractional_values:
+                    dynamic_threshold = calculate_dynamic_threshold(current_data['membership_matrix'])
+                    default_threshold = round(dynamic_threshold, 4)
+                else:
+                    dynamic_threshold = 0.5
+                    default_threshold = 0.5
+                
+                st.success(f"🎯 **Dinamik Threshold Önerisi:** {dynamic_threshold:.15f} (Fractional değerlerin ortalaması)")
                 
                 col1, col2 = st.columns([3, 1])
                 
@@ -1028,8 +1053,17 @@ def main():
                     else:
                         st.metric(f"0'a Dönüşecek ({threshold:.2f} ve altı)", values_below)
                 
-                # Eşikleme uygula butonu
-                if st.button("🔄 Eşikleme Uygula ve Yeni İterasyon Başlat", type="primary"):
+                # Butonlar
+                col1, col2 = st.columns(2)
+                
+                with col1:
+                    manual_button = st.button("🔄 Manuel Eşikleme Uygula", type="secondary", use_container_width=True)
+                
+                with col2:
+                    auto_button = st.button("🚀 Otomatik İteratif Analiz (Epsilon ile)", type="primary", use_container_width=True)
+                
+                # Manuel eşikleme
+                if manual_button:
                     with st.spinner("Yeni iterasyon hesaplanıyor..."):
                         # Eşikleme uygula (operatör parametresi ile)
                         thresholded_matrix = threshold_matrix(
@@ -1064,8 +1098,79 @@ def main():
                             'thresholded_matrix': thresholded_matrix
                         })
                         
-                        st.success(f"✅ İterasyon {current_iter + 1} oluşturuldu!")
-                        # st.rerun() yerine scroll yapabilmek için rerun'u kaldırıyoruz
+                        st.success(f"✅ Manuel İterasyon {current_iter + 1} oluşturuldu!")
+                        st.rerun()
+                
+                # Otomatik iteratif analiz
+                if auto_button:
+                    st.markdown("### 🚀 Otomatik İteratif Analiz Başlatıldı")
+                    
+                    # Session state için iterasyon geçmişini sıfırla
+                    st.session_state.iterations = [{
+                        'iteration': 0,
+                        'membership_matrix': membership_matrix,
+                        'scores': scores,
+                        'threshold': None,
+                        'keep_below': None,
+                        'thresholded_matrix': None
+                    }]
+                    
+                    max_iterations = 100
+                    progress_bar = st.progress(0)
+                    status_text = st.empty()
+                    
+                    for iteration in range(1, max_iterations + 1):
+                        current_data = st.session_state.iterations[-1]
+                        current_membership = current_data['membership_matrix']
+                        
+                        # Binary mi kontrol et
+                        all_vals = []
+                        for row in current_membership.values():
+                            all_vals.extend([float(v) for v in row.values()])
+                        
+                        fractional_vals = [v for v in all_vals if 0 < v < 1]
+                        
+                        if not fractional_vals:
+                            status_text.success(f"✅ İterasyon {iteration - 1}: Matris binary! Yakınsama sağlandı.")
+                            break
+                        
+                        # Dinamik threshold hesapla
+                        dynamic_thresh = calculate_dynamic_threshold(current_membership)
+                        status_text.info(f"⏳ İterasyon {iteration}: Threshold = {dynamic_thresh:.15f}, Fractional = {len(fractional_vals)}")
+                        
+                        # Threshold uygula (epsilon ile, >= operatörü)
+                        thresholded = threshold_matrix(current_membership, U, dynamic_thresh, False, ">=")
+                        
+                        # Soft set'e dönüştür
+                        new_E_named = {}
+                        for e_key in thresholded.keys():
+                            new_E_named[e_key] = set()
+                            for u, val in thresholded[e_key].items():
+                                if val >= 1:
+                                    new_E_named[e_key].add(u)
+                        
+                        # Yeni RMVC
+                        new_membership = create_membership_matrix(new_E_named, U)
+                        new_scores = calculate_scores(new_membership, U)
+                        
+                        # Kaydet
+                        st.session_state.iterations.append({
+                            'iteration': iteration,
+                            'membership_matrix': new_membership,
+                            'scores': new_scores,
+                            'threshold': dynamic_thresh,
+                            'threshold_operator': ">=",
+                            'keep_below': False,
+                            'thresholded_matrix': thresholded
+                        })
+                        
+                        progress_bar.progress(min(iteration / 20, 1.0))
+                    
+                    else:
+                        status_text.warning(f"⚠️ Maksimum iterasyona ({max_iterations}) ulaşıldı!")
+                    
+                    st.success(f"✅ Otomatik analiz tamamlandı! Toplam {len(st.session_state.iterations) - 1} iterasyon.")
+                    st.rerun()
                 
                 # Tüm iterasyonları göster
                 st.markdown("---")

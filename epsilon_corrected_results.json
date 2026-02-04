@@ -1,0 +1,1417 @@
+[
+  {
+    "file": "movielens_method1_10x20.csv",
+    "rows": 10,
+    "cols": 20,
+    "density": 59.0,
+    "converged": true,
+    "final_iteration": 5,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.43385850301013035,
+        "num_fractional": 82,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.36104698473092084,
+        "num_fractional": 47,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.28802646346505995,
+        "num_fractional": 22,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.2222222222222222,
+        "num_fractional": 8,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "MovieLens"
+  },
+  {
+    "file": "movielens_method1_20x30.csv",
+    "rows": 20,
+    "cols": 30,
+    "density": 54.5,
+    "converged": true,
+    "final_iteration": 7,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.3354342693794562,
+        "num_fractional": 273,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.3265805370811943,
+        "num_fractional": 161,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.24944266904413248,
+        "num_fractional": 107,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.25985318998023166,
+        "num_fractional": 37,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.1831930924489908,
+        "num_fractional": 33,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.15789473684210525,
+        "num_fractional": 17,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "MovieLens"
+  },
+  {
+    "file": "movielens_method1_30x50.csv",
+    "rows": 30,
+    "cols": 50,
+    "density": 57.73,
+    "converged": true,
+    "final_iteration": 10,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.3524968508007012,
+        "num_fractional": 634,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.35057006697432297,
+        "num_fractional": 321,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.27380087660453634,
+        "num_fractional": 221,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.31710437776273454,
+        "num_fractional": 140,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.2401768815440305,
+        "num_fractional": 92,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.8229768964934959,
+        "num_fractional": 24,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.9146825396825397,
+        "num_fractional": 12,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": false,
+        "threshold": 0.8949683321604505,
+        "num_fractional": 8,
+        "set_stable": false
+      },
+      {
+        "iteration": 9,
+        "is_binary": false,
+        "threshold": 0.9289232934553132,
+        "num_fractional": 6,
+        "set_stable": false
+      },
+      {
+        "iteration": 10,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "MovieLens"
+  },
+  {
+    "file": "movielens_method1_75x100.csv",
+    "rows": 75,
+    "cols": 100,
+    "density": 49.43,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.26310224933610454,
+        "num_fractional": 3793,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.2823053965862879,
+        "num_fractional": 1869,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.20756048526963003,
+        "num_fractional": 1059,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.13537649072181426,
+        "num_fractional": 471,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.08897281367300303,
+        "num_fractional": 273,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.04723859269313815,
+        "num_fractional": 143,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.04054054054054054,
+        "num_fractional": 72,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "MovieLens"
+  },
+  {
+    "file": "textile_10x10_miktar_raw.csv",
+    "rows": 10,
+    "cols": 10,
+    "density": 17.0,
+    "converged": true,
+    "final_iteration": 6,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.07809983896940419,
+        "num_fractional": 23,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.11767676767676766,
+        "num_fractional": 22,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.16024187452758884,
+        "num_fractional": 21,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.15584415584415587,
+        "num_fractional": 11,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "Miktar"
+  },
+  {
+    "file": "textile_10x10_alimsayisi_raw.csv",
+    "rows": 10,
+    "cols": 10,
+    "density": 17.0,
+    "converged": true,
+    "final_iteration": 6,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.07809983896940419,
+        "num_fractional": 23,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.11767676767676766,
+        "num_fractional": 22,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.16024187452758884,
+        "num_fractional": 21,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.15584415584415587,
+        "num_fractional": 11,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "AlimSayisi"
+  },
+  {
+    "file": "textile_10x10_totalscore_raw.csv",
+    "rows": 10,
+    "cols": 10,
+    "density": 17.0,
+    "converged": true,
+    "final_iteration": 6,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.07809983896940419,
+        "num_fractional": 23,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.11767676767676766,
+        "num_fractional": 22,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.16024187452758884,
+        "num_fractional": 21,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.15584415584415587,
+        "num_fractional": 11,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "TotalScore"
+  },
+  {
+    "file": "textile_10x20_miktar_raw.csv",
+    "rows": 10,
+    "cols": 20,
+    "density": 14.5,
+    "converged": true,
+    "final_iteration": 6,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.06404040404040404,
+        "num_fractional": 55,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.1519663207163207,
+        "num_fractional": 52,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.30017222920448716,
+        "num_fractional": 31,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.2685273790536949,
+        "num_fractional": 19,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "Miktar"
+  },
+  {
+    "file": "textile_10x20_alimsayisi_raw.csv",
+    "rows": 10,
+    "cols": 20,
+    "density": 14.5,
+    "converged": true,
+    "final_iteration": 6,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.06404040404040404,
+        "num_fractional": 55,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.1519663207163207,
+        "num_fractional": 52,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.30017222920448716,
+        "num_fractional": 31,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.2685273790536949,
+        "num_fractional": 19,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "AlimSayisi"
+  },
+  {
+    "file": "textile_10x20_totalscore_raw.csv",
+    "rows": 10,
+    "cols": 20,
+    "density": 14.5,
+    "converged": true,
+    "final_iteration": 6,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.06404040404040404,
+        "num_fractional": 55,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.1519663207163207,
+        "num_fractional": 52,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.30017222920448716,
+        "num_fractional": 31,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.2685273790536949,
+        "num_fractional": 19,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "TotalScore"
+  },
+  {
+    "file": "textile_20x20_miktar_raw.csv",
+    "rows": 20,
+    "cols": 20,
+    "density": 13.5,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.03260964912280702,
+        "num_fractional": 160,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.08807671059368853,
+        "num_fractional": 186,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.20252958217870498,
+        "num_fractional": 135,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.21258556839860848,
+        "num_fractional": 67,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.08372593888814107,
+        "num_fractional": 46,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.052448830409356724,
+        "num_fractional": 32,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.8391812865497076,
+        "num_fractional": 2,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "Miktar"
+  },
+  {
+    "file": "textile_20x20_alimsayisi_raw.csv",
+    "rows": 20,
+    "cols": 20,
+    "density": 13.5,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.03260964912280702,
+        "num_fractional": 160,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.08807671059368853,
+        "num_fractional": 186,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.20252958217870498,
+        "num_fractional": 135,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.21258556839860848,
+        "num_fractional": 67,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.08372593888814107,
+        "num_fractional": 46,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.052448830409356724,
+        "num_fractional": 32,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.8391812865497076,
+        "num_fractional": 2,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "AlimSayisi"
+  },
+  {
+    "file": "textile_20x20_totalscore_raw.csv",
+    "rows": 20,
+    "cols": 20,
+    "density": 13.5,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.03260964912280702,
+        "num_fractional": 160,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.08807671059368853,
+        "num_fractional": 186,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.20252958217870498,
+        "num_fractional": 135,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.21258556839860848,
+        "num_fractional": 67,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.08372593888814107,
+        "num_fractional": 46,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.052448830409356724,
+        "num_fractional": 32,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.8391812865497076,
+        "num_fractional": 2,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "TotalScore"
+  },
+  {
+    "file": "textile_20x30_miktar_raw.csv",
+    "rows": 20,
+    "cols": 30,
+    "density": 10.67,
+    "converged": true,
+    "final_iteration": 9,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.028703465982028237,
+        "num_fractional": 205,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.09130155829803571,
+        "num_fractional": 254,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.1825977041534317,
+        "num_fractional": 165,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.12109584352947904,
+        "num_fractional": 113,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.06177151740109767,
+        "num_fractional": 79,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.0522470950102529,
+        "num_fractional": 64,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.7863978127136022,
+        "num_fractional": 8,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": false,
+        "threshold": 0.8421052631578947,
+        "num_fractional": 2,
+        "set_stable": false
+      },
+      {
+        "iteration": 9,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "Miktar"
+  },
+  {
+    "file": "textile_20x30_alimsayisi_raw.csv",
+    "rows": 20,
+    "cols": 30,
+    "density": 10.67,
+    "converged": true,
+    "final_iteration": 9,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.028703465982028237,
+        "num_fractional": 205,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.09130155829803571,
+        "num_fractional": 254,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.1825977041534317,
+        "num_fractional": 165,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.12109584352947904,
+        "num_fractional": 113,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.06177151740109767,
+        "num_fractional": 79,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.0522470950102529,
+        "num_fractional": 64,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.7863978127136022,
+        "num_fractional": 8,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": false,
+        "threshold": 0.8421052631578947,
+        "num_fractional": 2,
+        "set_stable": false
+      },
+      {
+        "iteration": 9,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "AlimSayisi"
+  },
+  {
+    "file": "textile_20x30_totalscore_raw.csv",
+    "rows": 20,
+    "cols": 30,
+    "density": 10.67,
+    "converged": true,
+    "final_iteration": 9,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.028703465982028237,
+        "num_fractional": 205,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.09130155829803571,
+        "num_fractional": 254,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.1825977041534317,
+        "num_fractional": 165,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.12109584352947904,
+        "num_fractional": 113,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.06177151740109767,
+        "num_fractional": 79,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.0522470950102529,
+        "num_fractional": 64,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.7863978127136022,
+        "num_fractional": 8,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": false,
+        "threshold": 0.8421052631578947,
+        "num_fractional": 2,
+        "set_stable": false
+      },
+      {
+        "iteration": 9,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "TotalScore"
+  },
+  {
+    "file": "textile_30x50_miktar_raw.csv",
+    "rows": 30,
+    "cols": 50,
+    "density": 7.87,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.0164840249366842,
+        "num_fractional": 590,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.09710073993457659,
+        "num_fractional": 857,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.18805690016662638,
+        "num_fractional": 530,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.09901603510801639,
+        "num_fractional": 351,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.1891203043185341,
+        "num_fractional": 220,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.06260261706160407,
+        "num_fractional": 163,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.03448275862068965,
+        "num_fractional": 28,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "Miktar"
+  },
+  {
+    "file": "textile_30x50_alimsayisi_raw.csv",
+    "rows": 30,
+    "cols": 50,
+    "density": 7.87,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.0164840249366842,
+        "num_fractional": 590,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.09710073993457659,
+        "num_fractional": 857,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.18805690016662638,
+        "num_fractional": 530,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.09901603510801639,
+        "num_fractional": 351,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.1891203043185341,
+        "num_fractional": 220,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.06260261706160407,
+        "num_fractional": 163,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.03448275862068965,
+        "num_fractional": 28,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "AlimSayisi"
+  },
+  {
+    "file": "textile_30x50_totalscore_raw.csv",
+    "rows": 30,
+    "cols": 50,
+    "density": 7.87,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.0164840249366842,
+        "num_fractional": 590,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.09710073993457659,
+        "num_fractional": 857,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.18805690016662638,
+        "num_fractional": 530,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.09901603510801639,
+        "num_fractional": 351,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.1891203043185341,
+        "num_fractional": 220,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.06260261706160407,
+        "num_fractional": 163,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.03448275862068965,
+        "num_fractional": 28,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "TotalScore"
+  },
+  {
+    "file": "textile_50x50_miktar_raw.csv",
+    "rows": 50,
+    "cols": 50,
+    "density": 7.0,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.010935281121735044,
+        "num_fractional": 1123,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.06544489357878648,
+        "num_fractional": 1830,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.12609432239911755,
+        "num_fractional": 1185,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.054050562917823494,
+        "num_fractional": 909,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.03430755143647984,
+        "num_fractional": 466,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.020390440153482143,
+        "num_fractional": 147,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.9791576204950064,
+        "num_fractional": 6,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "Miktar"
+  },
+  {
+    "file": "textile_50x50_alimsayisi_raw.csv",
+    "rows": 50,
+    "cols": 50,
+    "density": 7.0,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.010935281121735044,
+        "num_fractional": 1123,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.06544489357878648,
+        "num_fractional": 1830,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.12609432239911755,
+        "num_fractional": 1185,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.054050562917823494,
+        "num_fractional": 909,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.03430755143647984,
+        "num_fractional": 466,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.020390440153482143,
+        "num_fractional": 147,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.9791576204950064,
+        "num_fractional": 6,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "AlimSayisi"
+  },
+  {
+    "file": "textile_50x50_totalscore_raw.csv",
+    "rows": 50,
+    "cols": 50,
+    "density": 7.0,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.010935281121735044,
+        "num_fractional": 1123,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.06544489357878648,
+        "num_fractional": 1830,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.12609432239911755,
+        "num_fractional": 1185,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.054050562917823494,
+        "num_fractional": 909,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.03430755143647984,
+        "num_fractional": 466,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.020390440153482143,
+        "num_fractional": 147,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.9791576204950064,
+        "num_fractional": 6,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "dataset": "Textile",
+    "method": "TotalScore"
+  }
+]

@@ -1,0 +1,252 @@
+[
+  {
+    "file": "movielens_method1_10x20.csv",
+    "rows": 10,
+    "cols": 20,
+    "density": 59.0,
+    "converged": true,
+    "final_iteration": 5,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.43385850301013035,
+        "num_fractional": 82,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.36104698473092084,
+        "num_fractional": 47,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.28802646346505995,
+        "num_fractional": 22,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.2222222222222222,
+        "num_fractional": 8,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ]
+  },
+  {
+    "file": "movielens_method1_20x30.csv",
+    "rows": 20,
+    "cols": 30,
+    "density": 54.5,
+    "converged": true,
+    "final_iteration": 7,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.3354342693794562,
+        "num_fractional": 273,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.3265805370811943,
+        "num_fractional": 161,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.24944266904413245,
+        "num_fractional": 107,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.2598531899802317,
+        "num_fractional": 37,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.1831930924489908,
+        "num_fractional": 33,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.15789473684210525,
+        "num_fractional": 17,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ]
+  },
+  {
+    "file": "movielens_method1_30x50.csv",
+    "rows": 30,
+    "cols": 50,
+    "density": 57.73,
+    "converged": true,
+    "final_iteration": 10,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.3524968508007012,
+        "num_fractional": 634,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.35057006697432297,
+        "num_fractional": 321,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.27380087660453634,
+        "num_fractional": 221,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.31710437776273454,
+        "num_fractional": 140,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.2401768815440305,
+        "num_fractional": 92,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.8229768964934959,
+        "num_fractional": 24,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.9146825396825397,
+        "num_fractional": 12,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": false,
+        "threshold": 0.8949683321604505,
+        "num_fractional": 8,
+        "set_stable": false
+      },
+      {
+        "iteration": 9,
+        "is_binary": false,
+        "threshold": 0.9289232934553132,
+        "num_fractional": 6,
+        "set_stable": false
+      },
+      {
+        "iteration": 10,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ]
+  },
+  {
+    "file": "movielens_method1_75x100.csv",
+    "rows": 75,
+    "cols": 100,
+    "density": 49.43,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.26310224933610454,
+        "num_fractional": 3793,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.28230539658628795,
+        "num_fractional": 1869,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.20756048526963003,
+        "num_fractional": 1059,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.13537649072181426,
+        "num_fractional": 471,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.08897281367300304,
+        "num_fractional": 273,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.04723859269313815,
+        "num_fractional": 143,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.04054054054054054,
+        "num_fractional": 72,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,26 @@
+{
+  "method": "Method 1",
+  "size": "10x20",
+  "total_iterations": 2,
+  "converged": true,
+  "best_product": "113309",
+  "best_score": 3.511111111111111,
+  "iterations": [
+    {
+      "iteration": 0,
+      "matrix_type": "binary",
+      "is_fully_binary": true
+    },
+    {
+      "iteration": 1,
+      "matrix_type": "membership",
+      "is_fully_binary": false
+    },
+    {
+      "iteration": 1,
+      "matrix_type": "binary_converged",
+      "is_fully_binary": true
+    }
+  ],
+  "timestamp": "2026-02-02T00:51:37.709202"
+}

@@ -41,3 +41,10 @@ Tekstil veri setinde olduğu gibi, MovieLens veri setinde de **Pareto İlkesi** 
 1. RMVC analizini önce yoğun bölgelerde test edin.
 2. Farklı boyutlardaki matrisleri karşılaştırarak optimal boyutu belirleyin.
 3. Cold start problemini azaltmak için yoğun bölgedeki kullanıcıları önceliklendirin.
+
+## 6. Oluşturulan Dosyalar
+
+- datasets/movielens_dense_*.csv (8 farklı matris)
+- analysis_plots/movielens_density_heatmaps.png
+- analysis_plots/movielens_density_comparison.png
+- MOVIELENS_DENSITY_REPORT.md

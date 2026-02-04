@@ -1,0 +1,114 @@
+{
+  "test_sizes": [
+    {
+      "rows": 10,
+      "cols": 20
+    },
+    {
+      "rows": 20,
+      "cols": 30
+    },
+    {
+      "rows": 30,
+      "cols": 50
+    }
+  ],
+  "raw_matrices": [
+    {
+      "size": "10x20",
+      "miktar_density": 14.499999999999998,
+      "alimsayisi_density": 14.499999999999998,
+      "totalscore_density": 14.499999999999998
+    },
+    {
+      "size": "20x30",
+      "miktar_density": 10.666666666666668,
+      "alimsayisi_density": 10.666666666666668,
+      "totalscore_density": 10.666666666666668
+    },
+    {
+      "size": "30x50",
+      "miktar_density": 7.866666666666666,
+      "alimsayisi_density": 7.866666666666666,
+      "totalscore_density": 7.866666666666666
+    }
+  ],
+  "binary_info": [
+    {
+      "size": "10x20",
+      "method1": {
+        "description": "Miktar > 0",
+        "density": 14.499999999999998,
+        "ones_count": 29
+      },
+      "method2": {
+        "description": "AlimSayisi > 0",
+        "density": 14.499999999999998,
+        "ones_count": 29
+      },
+      "method3": {
+        "description": "Miktar >= nan",
+        "threshold": NaN,
+        "density": 14.499999999999998,
+        "ones_count": 29
+      },
+      "method4": {
+        "description": "TotalScore >= nan",
+        "threshold": NaN,
+        "density": 14.499999999999998,
+        "ones_count": 29
+      }
+    },
+    {
+      "size": "20x30",
+      "method1": {
+        "description": "Miktar > 0",
+        "density": 10.666666666666668,
+        "ones_count": 64
+      },
+      "method2": {
+        "description": "AlimSayisi > 0",
+        "density": 10.666666666666668,
+        "ones_count": 64
+      },
+      "method3": {
+        "description": "Miktar >= nan",
+        "threshold": NaN,
+        "density": 10.666666666666668,
+        "ones_count": 64
+      },
+      "method4": {
+        "description": "TotalScore >= nan",
+        "threshold": NaN,
+        "density": 10.666666666666668,
+        "ones_count": 64
+      }
+    },
+    {
+      "size": "30x50",
+      "method1": {
+        "description": "Miktar > 0",
+        "density": 7.866666666666666,
+        "ones_count": 118
+      },
+      "method2": {
+        "description": "AlimSayisi > 0",
+        "density": 7.866666666666666,
+        "ones_count": 118
+      },
+      "method3": {
+        "description": "Miktar >= nan",
+        "threshold": NaN,
+        "density": 7.866666666666666,
+        "ones_count": 118
+      },
+      "method4": {
+        "description": "TotalScore >= nan",
+        "threshold": NaN,
+        "density": 7.866666666666666,
+        "ones_count": 118
+      }
+    }
+  ],
+  "timestamp": "2026-02-02T00:38:20.450753"
+}

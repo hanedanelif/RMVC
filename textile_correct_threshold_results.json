@@ -1,0 +1,2993 @@
+[
+  {
+    "file": "textile_10x10_miktar_raw.csv",
+    "rows": 10,
+    "cols": 10,
+    "density": 17.0,
+    "converged": false,
+    "final_iteration": 50,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.07809983896940419,
+        "num_fractional": 23,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.11767676767676766,
+        "num_fractional": 22,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.16024187452758884,
+        "num_fractional": 21,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.15584415584415587,
+        "num_fractional": 11,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 8,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 9,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 10,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 11,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 12,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 13,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 14,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 15,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 16,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 17,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 18,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 19,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 20,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 21,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 22,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 23,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 24,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 25,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 26,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 27,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 28,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 29,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 30,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 31,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 32,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 33,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 34,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 35,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 36,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 37,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 38,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 39,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 40,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 41,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 42,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 43,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 44,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 45,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 46,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 47,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 48,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 49,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 50,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      }
+    ],
+    "method": "Miktar"
+  },
+  {
+    "file": "textile_10x10_alimsayisi_raw.csv",
+    "rows": 10,
+    "cols": 10,
+    "density": 17.0,
+    "converged": false,
+    "final_iteration": 50,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.07809983896940419,
+        "num_fractional": 23,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.11767676767676766,
+        "num_fractional": 22,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.16024187452758884,
+        "num_fractional": 21,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.15584415584415587,
+        "num_fractional": 11,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 8,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 9,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 10,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 11,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 12,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 13,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 14,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 15,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 16,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 17,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 18,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 19,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 20,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 21,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 22,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 23,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 24,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 25,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 26,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 27,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 28,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 29,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 30,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 31,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 32,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 33,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 34,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 35,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 36,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 37,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 38,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 39,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 40,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 41,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 42,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 43,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 44,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 45,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 46,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 47,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 48,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 49,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 50,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      }
+    ],
+    "method": "AlimSayisi"
+  },
+  {
+    "file": "textile_10x10_totalscore_raw.csv",
+    "rows": 10,
+    "cols": 10,
+    "density": 17.0,
+    "converged": false,
+    "final_iteration": 50,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.07809983896940419,
+        "num_fractional": 23,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.11767676767676766,
+        "num_fractional": 22,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.16024187452758884,
+        "num_fractional": 21,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.15584415584415587,
+        "num_fractional": 11,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 8,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 9,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 10,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 11,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 12,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 13,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 14,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 15,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 16,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 17,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 18,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 19,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 20,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 21,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 22,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 23,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 24,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 25,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 26,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 27,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 28,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 29,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 30,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 31,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 32,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 33,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 34,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 35,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 36,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 37,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 38,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 39,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 40,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 41,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 42,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 43,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 44,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 45,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 46,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 47,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 48,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 49,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      },
+      {
+        "iteration": 50,
+        "is_binary": false,
+        "threshold": 0.11111111111111112,
+        "num_fractional": 6,
+        "set_stable": true
+      }
+    ],
+    "method": "TotalScore"
+  },
+  {
+    "file": "textile_10x20_miktar_raw.csv",
+    "rows": 10,
+    "cols": 20,
+    "density": 14.5,
+    "converged": false,
+    "final_iteration": 50,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.06404040404040404,
+        "num_fractional": 55,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.1519663207163207,
+        "num_fractional": 52,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.3001722292044872,
+        "num_fractional": 31,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.26852737905369484,
+        "num_fractional": 19,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 8,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 9,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 10,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 11,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 12,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 13,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 14,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 15,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 16,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 17,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 18,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 19,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 20,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 21,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 22,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 23,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 24,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 25,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 26,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 27,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 28,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 29,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 30,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 31,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 32,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 33,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 34,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 35,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 36,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 37,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 38,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 39,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 40,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 41,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 42,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 43,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 44,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 45,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 46,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 47,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 48,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 49,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 50,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      }
+    ],
+    "method": "Miktar"
+  },
+  {
+    "file": "textile_10x20_alimsayisi_raw.csv",
+    "rows": 10,
+    "cols": 20,
+    "density": 14.5,
+    "converged": false,
+    "final_iteration": 50,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.06404040404040404,
+        "num_fractional": 55,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.1519663207163207,
+        "num_fractional": 52,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.3001722292044872,
+        "num_fractional": 31,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.26852737905369484,
+        "num_fractional": 19,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 8,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 9,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 10,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 11,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 12,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 13,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 14,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 15,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 16,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 17,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 18,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 19,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 20,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 21,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 22,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 23,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 24,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 25,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 26,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 27,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 28,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 29,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 30,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 31,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 32,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 33,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 34,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 35,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 36,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 37,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 38,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 39,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 40,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 41,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 42,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 43,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 44,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 45,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 46,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 47,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 48,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 49,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 50,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      }
+    ],
+    "method": "AlimSayisi"
+  },
+  {
+    "file": "textile_10x20_totalscore_raw.csv",
+    "rows": 10,
+    "cols": 20,
+    "density": 14.5,
+    "converged": false,
+    "final_iteration": 50,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.06404040404040404,
+        "num_fractional": 55,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.1519663207163207,
+        "num_fractional": 52,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.3001722292044872,
+        "num_fractional": 31,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.26852737905369484,
+        "num_fractional": 19,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 8,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 9,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 10,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 11,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 12,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 13,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 14,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 15,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 16,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 17,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 18,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 19,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 20,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 21,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 22,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 23,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 24,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 25,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 26,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 27,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 28,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 29,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 30,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 31,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 32,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 33,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 34,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 35,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 36,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 37,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 38,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 39,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 40,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 41,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 42,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 43,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 44,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 45,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 46,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 47,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 48,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 49,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      },
+      {
+        "iteration": 50,
+        "is_binary": false,
+        "threshold": 0.22222222222222224,
+        "num_fractional": 12,
+        "set_stable": true
+      }
+    ],
+    "method": "TotalScore"
+  },
+  {
+    "file": "textile_20x20_miktar_raw.csv",
+    "rows": 20,
+    "cols": 20,
+    "density": 13.5,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.03260964912280702,
+        "num_fractional": 160,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.08807671059368853,
+        "num_fractional": 186,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.20252958217870498,
+        "num_fractional": 135,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.21258556839860848,
+        "num_fractional": 67,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.08372593888814109,
+        "num_fractional": 46,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.052448830409356724,
+        "num_fractional": 32,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.8391812865497076,
+        "num_fractional": 2,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "method": "Miktar"
+  },
+  {
+    "file": "textile_20x20_alimsayisi_raw.csv",
+    "rows": 20,
+    "cols": 20,
+    "density": 13.5,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.03260964912280702,
+        "num_fractional": 160,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.08807671059368853,
+        "num_fractional": 186,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.20252958217870498,
+        "num_fractional": 135,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.21258556839860848,
+        "num_fractional": 67,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.08372593888814109,
+        "num_fractional": 46,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.052448830409356724,
+        "num_fractional": 32,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.8391812865497076,
+        "num_fractional": 2,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "method": "AlimSayisi"
+  },
+  {
+    "file": "textile_20x20_totalscore_raw.csv",
+    "rows": 20,
+    "cols": 20,
+    "density": 13.5,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.03260964912280702,
+        "num_fractional": 160,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.08807671059368853,
+        "num_fractional": 186,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.20252958217870498,
+        "num_fractional": 135,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.21258556839860848,
+        "num_fractional": 67,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.08372593888814109,
+        "num_fractional": 46,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.052448830409356724,
+        "num_fractional": 32,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.8391812865497076,
+        "num_fractional": 2,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "method": "TotalScore"
+  },
+  {
+    "file": "textile_20x30_miktar_raw.csv",
+    "rows": 20,
+    "cols": 30,
+    "density": 10.67,
+    "converged": true,
+    "final_iteration": 9,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.02870346598202824,
+        "num_fractional": 205,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.09130155829803571,
+        "num_fractional": 254,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.1825977041534317,
+        "num_fractional": 165,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.12109584352947905,
+        "num_fractional": 113,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.06177151740109766,
+        "num_fractional": 79,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.0522470950102529,
+        "num_fractional": 64,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.7863978127136022,
+        "num_fractional": 8,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": false,
+        "threshold": 0.8421052631578947,
+        "num_fractional": 2,
+        "set_stable": false
+      },
+      {
+        "iteration": 9,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "method": "Miktar"
+  },
+  {
+    "file": "textile_20x30_alimsayisi_raw.csv",
+    "rows": 20,
+    "cols": 30,
+    "density": 10.67,
+    "converged": true,
+    "final_iteration": 9,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.02870346598202824,
+        "num_fractional": 205,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.09130155829803571,
+        "num_fractional": 254,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.1825977041534317,
+        "num_fractional": 165,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.12109584352947905,
+        "num_fractional": 113,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.06177151740109766,
+        "num_fractional": 79,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.0522470950102529,
+        "num_fractional": 64,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.7863978127136022,
+        "num_fractional": 8,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": false,
+        "threshold": 0.8421052631578947,
+        "num_fractional": 2,
+        "set_stable": false
+      },
+      {
+        "iteration": 9,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "method": "AlimSayisi"
+  },
+  {
+    "file": "textile_20x30_totalscore_raw.csv",
+    "rows": 20,
+    "cols": 30,
+    "density": 10.67,
+    "converged": true,
+    "final_iteration": 9,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.02870346598202824,
+        "num_fractional": 205,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.09130155829803571,
+        "num_fractional": 254,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.1825977041534317,
+        "num_fractional": 165,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.12109584352947905,
+        "num_fractional": 113,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.06177151740109766,
+        "num_fractional": 79,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.0522470950102529,
+        "num_fractional": 64,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.7863978127136022,
+        "num_fractional": 8,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": false,
+        "threshold": 0.8421052631578947,
+        "num_fractional": 2,
+        "set_stable": false
+      },
+      {
+        "iteration": 9,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "method": "TotalScore"
+  },
+  {
+    "file": "textile_30x50_miktar_raw.csv",
+    "rows": 30,
+    "cols": 50,
+    "density": 7.87,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.0164840249366842,
+        "num_fractional": 590,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.09710073993457657,
+        "num_fractional": 857,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.18805690016662638,
+        "num_fractional": 530,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.09901603510801638,
+        "num_fractional": 351,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.1891203043185341,
+        "num_fractional": 220,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.06260261706160407,
+        "num_fractional": 163,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.03448275862068965,
+        "num_fractional": 28,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "method": "Miktar"
+  },
+  {
+    "file": "textile_30x50_alimsayisi_raw.csv",
+    "rows": 30,
+    "cols": 50,
+    "density": 7.87,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.0164840249366842,
+        "num_fractional": 590,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.09710073993457657,
+        "num_fractional": 857,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.18805690016662638,
+        "num_fractional": 530,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.09901603510801638,
+        "num_fractional": 351,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.1891203043185341,
+        "num_fractional": 220,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.06260261706160407,
+        "num_fractional": 163,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.03448275862068965,
+        "num_fractional": 28,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "method": "AlimSayisi"
+  },
+  {
+    "file": "textile_30x50_totalscore_raw.csv",
+    "rows": 30,
+    "cols": 50,
+    "density": 7.87,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.0164840249366842,
+        "num_fractional": 590,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.09710073993457657,
+        "num_fractional": 857,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.18805690016662638,
+        "num_fractional": 530,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.09901603510801638,
+        "num_fractional": 351,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.1891203043185341,
+        "num_fractional": 220,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.06260261706160407,
+        "num_fractional": 163,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.03448275862068965,
+        "num_fractional": 28,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "method": "TotalScore"
+  },
+  {
+    "file": "textile_50x50_miktar_raw.csv",
+    "rows": 50,
+    "cols": 50,
+    "density": 7.0,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.010935281121735044,
+        "num_fractional": 1123,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.06544489357878648,
+        "num_fractional": 1830,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.12609432239911758,
+        "num_fractional": 1185,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.054050562917823494,
+        "num_fractional": 909,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.034307551436479844,
+        "num_fractional": 466,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.020390440153482143,
+        "num_fractional": 147,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.9791576204950064,
+        "num_fractional": 6,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "method": "Miktar"
+  },
+  {
+    "file": "textile_50x50_alimsayisi_raw.csv",
+    "rows": 50,
+    "cols": 50,
+    "density": 7.0,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.010935281121735044,
+        "num_fractional": 1123,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.06544489357878648,
+        "num_fractional": 1830,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.12609432239911758,
+        "num_fractional": 1185,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.054050562917823494,
+        "num_fractional": 909,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.034307551436479844,
+        "num_fractional": 466,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.020390440153482143,
+        "num_fractional": 147,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.9791576204950064,
+        "num_fractional": 6,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "method": "AlimSayisi"
+  },
+  {
+    "file": "textile_50x50_totalscore_raw.csv",
+    "rows": 50,
+    "cols": 50,
+    "density": 7.0,
+    "converged": true,
+    "final_iteration": 8,
+    "iterations": [
+      {
+        "iteration": 1,
+        "is_binary": false,
+        "threshold": 0.010935281121735044,
+        "num_fractional": 1123,
+        "set_stable": false
+      },
+      {
+        "iteration": 2,
+        "is_binary": false,
+        "threshold": 0.06544489357878648,
+        "num_fractional": 1830,
+        "set_stable": false
+      },
+      {
+        "iteration": 3,
+        "is_binary": false,
+        "threshold": 0.12609432239911758,
+        "num_fractional": 1185,
+        "set_stable": false
+      },
+      {
+        "iteration": 4,
+        "is_binary": false,
+        "threshold": 0.054050562917823494,
+        "num_fractional": 909,
+        "set_stable": false
+      },
+      {
+        "iteration": 5,
+        "is_binary": false,
+        "threshold": 0.034307551436479844,
+        "num_fractional": 466,
+        "set_stable": false
+      },
+      {
+        "iteration": 6,
+        "is_binary": false,
+        "threshold": 0.020390440153482143,
+        "num_fractional": 147,
+        "set_stable": false
+      },
+      {
+        "iteration": 7,
+        "is_binary": false,
+        "threshold": 0.9791576204950064,
+        "num_fractional": 6,
+        "set_stable": false
+      },
+      {
+        "iteration": 8,
+        "is_binary": true,
+        "threshold": 0.5,
+        "num_fractional": 0,
+        "set_stable": true
+      }
+    ],
+    "method": "TotalScore"
+  }
+]

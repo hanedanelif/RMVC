@@ -1,0 +1,173 @@
+{
+  "total_tests": 12,
+  "test_sizes": [
+    "10x20",
+    "20x30",
+    "30x50"
+  ],
+  "methods": [
+    "method1",
+    "method2",
+    "method3",
+    "method4"
+  ],
+  "results": [
+    {
+      "method": "Method 1",
+      "size": "10x20",
+      "file": "textile_10x20_method1.csv",
+      "firms": 10,
+      "products": 20,
+      "density": 14.499999999999998,
+      "best_element": "113309",
+      "best_score": 3.511111111111111,
+      "total_iterations": 2,
+      "converged": true,
+      "membership_file": "textile_10x20_method1_membership.csv"
+    },
+    {
+      "method": "Method 2",
+      "size": "10x20",
+      "file": "textile_10x20_method2.csv",
+      "firms": 10,
+      "products": 20,
+      "density": 14.499999999999998,
+      "best_element": "113309",
+      "best_score": 3.511111111111111,
+      "total_iterations": 2,
+      "converged": true,
+      "membership_file": "textile_10x20_method2_membership.csv"
+    },
+    {
+      "method": "Method 3",
+      "size": "10x20",
+      "file": "textile_10x20_method3.csv",
+      "firms": 10,
+      "products": 20,
+      "density": 14.499999999999998,
+      "best_element": "113309",
+      "best_score": 3.511111111111111,
+      "total_iterations": 2,
+      "converged": true,
+      "membership_file": "textile_10x20_method3_membership.csv"
+    },
+    {
+      "method": "Method 4",
+      "size": "10x20",
+      "file": "textile_10x20_method4.csv",
+      "firms": 10,
+      "products": 20,
+      "density": 14.499999999999998,
+      "best_element": "113309",
+      "best_score": 3.511111111111111,
+      "total_iterations": 2,
+      "converged": true,
+      "membership_file": "textile_10x20_method4_membership.csv"
+    },
+    {
+      "method": "Method 1",
+      "size": "20x30",
+      "file": "textile_20x30_method1.csv",
+      "firms": 20,
+      "products": 30,
+      "density": 10.666666666666668,
+      "best_element": "88109",
+      "best_score": 5.5,
+      "total_iterations": 2,
+      "converged": true,
+      "membership_file": "textile_20x30_method1_membership.csv"
+    },
+    {
+      "method": "Method 2",
+      "size": "20x30",
+      "file": "textile_20x30_method2.csv",
+      "firms": 20,
+      "products": 30,
+      "density": 10.666666666666668,
+      "best_element": "88109",
+      "best_score": 5.5,
+      "total_iterations": 2,
+      "converged": true,
+      "membership_file": "textile_20x30_method2_membership.csv"
+    },
+    {
+      "method": "Method 3",
+      "size": "20x30",
+      "file": "textile_20x30_method3.csv",
+      "firms": 20,
+      "products": 30,
+      "density": 10.666666666666668,
+      "best_element": "88109",
+      "best_score": 5.5,
+      "total_iterations": 2,
+      "converged": true,
+      "membership_file": "textile_20x30_method3_membership.csv"
+    },
+    {
+      "method": "Method 4",
+      "size": "20x30",
+      "file": "textile_20x30_method4.csv",
+      "firms": 20,
+      "products": 30,
+      "density": 10.666666666666668,
+      "best_element": "88109",
+      "best_score": 5.5,
+      "total_iterations": 2,
+      "converged": true,
+      "membership_file": "textile_20x30_method4_membership.csv"
+    },
+    {
+      "method": "Method 1",
+      "size": "30x50",
+      "file": "textile_30x50_method1.csv",
+      "firms": 30,
+      "products": 50,
+      "density": 7.866666666666666,
+      "best_element": "88109",
+      "best_score": 7.579638752052545,
+      "total_iterations": 2,
+      "converged": true,
+      "membership_file": "textile_30x50_method1_membership.csv"
+    },
+    {
+      "method": "Method 2",
+      "size": "30x50",
+      "file": "textile_30x50_method2.csv",
+      "firms": 30,
+      "products": 50,
+      "density": 7.866666666666666,
+      "best_element": "88109",
+      "best_score": 7.579638752052545,
+      "total_iterations": 2,
+      "converged": true,
+      "membership_file": "textile_30x50_method2_membership.csv"
+    },
+    {
+      "method": "Method 3",
+      "size": "30x50",
+      "file": "textile_30x50_method3.csv",
+      "firms": 30,
+      "products": 50,
+      "density": 7.866666666666666,
+      "best_element": "88109",
+      "best_score": 7.579638752052545,
+      "total_iterations": 2,
+      "converged": true,
+      "membership_file": "textile_30x50_method3_membership.csv"
+    },
+    {
+      "method": "Method 4",
+      "size": "30x50",
+      "file": "textile_30x50_method4.csv",
+      "firms": 30,
+      "products": 50,
+      "density": 7.866666666666666,
+      "best_element": "88109",
+      "best_score": 7.579638752052545,
+      "total_iterations": 2,
+      "converged": true,
+      "membership_file": "textile_30x50_method4_membership.csv"
+    }
+  ],
+  "timestamp": "2026-02-02T00:40:11.040672"
+}
